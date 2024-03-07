@@ -1,4 +1,3 @@
-// src/pages/ProductListPage/index.tsx
 import React from 'react';
 import { useFetchProducts } from '../hooks/useFetchProducts';
 
@@ -18,7 +17,7 @@ const ProductListPage: React.FC = () => {
             <h1>Product List</h1>
             <ul>
                 {products.map((product) => (
-                    <li key={product.id}>{product.name} - ${product.price}</li>
+                    <li key={product.id}>{product.name} - ${product.age}</li>
                 ))}
             </ul>
         </div>

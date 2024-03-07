@@ -10,10 +10,11 @@ export const useFetchProducts = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get<Product[]>("http://localhost:3000/api/products");
-                setProducts(response.data);
+                const response = await axios.get("http://localhost:3000/api/products");
+                setProducts(response.data.result);
                 setLoading(false);
             } catch (error) {
+                console.log(error);
                 setError("Error fetching products");
                 setLoading(false);
             }
@@ -22,7 +23,6 @@ export const useFetchProducts = () => {
         fetchData();
 
     }, []);
-    console.log(products)
 
     return { products, loading, error };
 };
