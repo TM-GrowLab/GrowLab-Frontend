@@ -1,13 +1,109 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://use.typekit.net/awq2ioh.css");
+/* Variables */
+:root {
+  --Meadow-Haze: #72C6A4;
+  --Frech-Mint: #8DECBC;
+  --Turquoise-Tango: #73C7C2;
+  --Coastal-Blue: #73B1C7;
+  --Charoal: #242526;
+  --Porcelean: #F2F2F2;
+  --Gradient: linear-gradient(100deg, #8DECBC 0%, #73C7C2 100%);
+  --White: #FFFFFF;
+  --Red: #F27C7C;
+  --LightGrey: #E7E7E7;
+  --Transparent-Overlay: rgba(0, 0, 0, 0.5);
+  --Box-Shadow: gray 0px 4px 4px 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Custom Fonts */
+body {
+  font-family: "elza", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+  background-color: var(--Porcelean);
+}
+
+h1{
+  font-family: "elza", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 48px;
+}
+
+h2{
+  font-family: "elza", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 36px;
+}
+
+h3{
+  font-family: "elza", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 24px;
+}
+
+h4{
+  font-family: "elza", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.elza_p {
+  font-family: "elza", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+}
+
+.nav_light {
+  font-family: "elza", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.nav_select{
+  font-family: "elza", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+}
+
+.elza_20_bold, button{
+  font-family: "elza", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+}
+
+.link {
+  font-family: "elza", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 16px;
+}
+
+/* Basic elements */
+.sec_button{
+  min-width: 154px;
+  min-height: 56px;
+  border-radius: 25px;
+  color: var(--Charoal);
+  background-color: var(--White);
+  border: none;
+  box-shadow: var(--Box-Shadow);
+;}
+
+.pri_button{
+  min-width: 154px;
+  min-height: 56px;
+  border-radius: 25px;
+  color: var(--White);
+  background-color: var(--Meadow-Haze);
+  border: none;
+  box-shadow: var(--Box-Shadow);
 }

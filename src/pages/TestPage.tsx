@@ -8,19 +8,19 @@ const ProductListPage: React.FC = () => {
         return <div>Loading...</div>;
     }
 
-    if (error) {
-        return <div>{error}</div>;
-    }
 
     return (
-        <div>
-            <h1>Product List</h1>
-            <ul>
-                {products.map((product) => (
-                    <li key={product.id}>{product.name} - ${product.age}</li>
-                ))}
-            </ul>
-        </div>
+        <>
+            <div>
+                <h1>Product List</h1>
+                {error && <div>Error fetching products</div>}
+                <ul>
+                    {products.map((product) => (
+                        <li key={product.id}>{product.name} - ${product.age}</li>
+                    ))}
+                </ul>
+            </div>
+        </>
     );
 };
 
