@@ -7,12 +7,12 @@
   --Coastal-Blue: #73B1C7;
   --Charoal: #242526;
   --Porcelean: #F2F2F2;
-  --Gradient: linear-gradient(100deg, #8DECBC 0%, #73C7C2 100%);
+  --Gradient: linear-gradient(45deg, #8DECBC, #73C7C2);
   --White: #FFFFFF;
   --Red: #F27C7C;
   --LightGrey: #E7E7E7;
   --Transparent-Overlay: rgba(0, 0, 0, 0.5);
-  --Box-Shadow: gray 0px 4px 4px 0px;
+  --Box-Shadow: rgb(183, 183, 183) 0px 4px 4px 0px;
 }
 
 /* Custom Fonts */
@@ -22,13 +22,22 @@ body {
   font-style: normal;
   font-size: 16px;
   background-color: var(--Porcelean);
+  margin: 0 8em;
+}
+
+.bold {
+  font-family: "elza", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 70px;
 }
 
 h1{
   font-family: "elza", sans-serif;
-  font-weight: 900;
+  font-weight: 400;
   font-style: normal;
-  font-size: 48px;
+  font-size: 70px;
+  margin: 0;
 }
 
 h2{
@@ -50,6 +59,13 @@ h4{
   font-weight: 500;
   font-style: normal;
   font-size: 20px;
+}
+
+h5{
+  font-family: "elza", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 22px;
 }
 
 .elza_p {
@@ -107,3 +123,92 @@ h4{
   border: none;
   box-shadow: var(--Box-Shadow);
 }
+
+.pri_button_header{
+  min-width: 245px;
+  min-height: 90px;
+  border-radius: 80px;
+  color: var(--White);
+  background: linear-gradient(45deg, #8DECBC, #73C7C2) !important;
+  border: none;
+  box-shadow: var(--Box-Shadow);
+  font-size: 30px;
+}
+
+.sec_button_header{
+  min-width: 245px;
+  min-height: 90px;
+  border-radius: 80px;
+  color: var(--Charoal);
+  background-color: var(--White);
+  border: none;
+  box-shadow: var(--Box-Shadow);
+  font-size: 30px;
+;}
+
+button:hover {
+  cursor: pointer;
+  filter: brightness(95%);
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 8em;
+  margin: 0 2em;
+}
+
+#nav_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+
+#nav_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 22%;
+
+}
+
+ul li {
+  list-style-type: none;
+}
+
+/* Header Home Page */
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.card_header {
+  background-color: var(--White);
+  padding: 3em;
+  padding-bottom: 5em;
+  min-height: 20em;
+  border-radius: 0 25px 25px 25px ;
+}
+
+header img {
+  max-width: 40em;
+}
+
+.logo {
+  width: 8em;
+}
+
+.header_buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+}
+

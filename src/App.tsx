@@ -1,15 +1,15 @@
 import React from 'react';
-import ProductListPage from './pages/TestPage';
-import { NavBar } from './components/NavBar';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HomePage } from './components/HomePage';
+
 
 const App: React.FC = () => {
   return (
-    <>
-      <NavBar />
-      <div>
-        <ProductListPage />
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={HomePage} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
