@@ -1,12 +1,16 @@
 
+interface SuccesverhaalProps {
+    bedrijf: string;
+    beschrijving: string;
+}
 
-export const Succesverhaal = () => {
+export const Succesverhaal = ({bedrijf, beschrijving}:SuccesverhaalProps) => {
 
     return (
         <>
-                    <div>
-                        <h2>Pixelvortex</h2>
-                        <p>GrowLab gaf me een team, wij maakten er een familie van.</p>
+                    <div className="succesverhaal">
+                        <h2>{bedrijf}</h2>
+                        <h4>{beschrijving}</h4>
                     </div>
         </>
     );
