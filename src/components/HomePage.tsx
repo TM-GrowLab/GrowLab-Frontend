@@ -1,12 +1,20 @@
 import imgHeader from "../images/Header_img.png";
-import logoGrowLab from "../images/LogoGrowLab.png";
 import { NavBar } from "./NavBar";
 import { Succesverhaal } from "./HomePage/Succesverhaal";
+import { Footer } from "./Footer";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
 
+    const navigate = useNavigate()
+
+    const navigateToAanmeldGegevens = () => {
+        navigate('/aanmeldgegevens')
+    }
+
     return (
         <>
+            <div className="container">
                 <NavBar />
                 <header>
                     <div className="card_header">
@@ -15,7 +23,7 @@ export const HomePage = () => {
                         <h5>Met GrowLab</h5>
                         <div className="header_buttons">
                             <button id="aanmelden" className="sec_button_header">Aanmelden</button>
-                            <button id="registeren" className="pri_button_header">Registeren</button>
+                            <button id="registeren" className="pri_button_header" onClick={navigateToAanmeldGegevens} >Registeren</button>
                         </div>
                     </div>
                     <img className="img_header" src={imgHeader} alt="header_img" />
@@ -55,13 +63,15 @@ export const HomePage = () => {
                         <p>
                             GrowLab is gebouwd op 3 waarden: Community, Learning en Klanten. Community staat voor de connecties die we bouwen tussen gelijkgezinde digital creatives. Learning is de kennis die onze ervaren leden delen met de jonge starters. We bouwen bruggen naar externe klanten om beide partijen eerlijke kansen te geven. We geloven dat door het versterken van de Community, het delen van Lessons learned, en het faciliteren van waardevolle connecties met Klanten, we niet alleen individuele ondernemers ondersteunen, maar ook bijdragen aan een veerkrachtig en innovatief ecosysteem voor digitale ondernemingen.
                         </p>
-                        <div>
+                        <div className="waarden">
                             <img src="" alt="" />
                             <img src="" alt="" />
                             <img src="" alt="" />
                         </div>
                     </div>
                 </section>
+            </div>
+            <Footer />
         </>
     );
 }
