@@ -1,6 +1,8 @@
 import imgHeader from "../images/Header_img.png";
 import { NavBar } from "./NavBar";
 import { Succesverhaal } from "./HomePage/Succesverhaal";
+import { useState } from "react";
+import LogIn from "./LogIn";
 import { Footer } from "./Footer";
 import { useNavigate } from "react-router-dom";
 
@@ -74,4 +76,5 @@ export const HomePage = () => {
             <Footer />
         </>
     );
+
 }
