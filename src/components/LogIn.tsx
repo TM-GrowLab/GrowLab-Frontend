@@ -32,7 +32,12 @@ export const LogIn: React.FC = () => {
         .then(data => {
             console.log(data);
 
+            // store the token in local storage
+            localStorage.setItem('token', data.token);
+
             // proceed to home
+            // show wrong password message
+            document.querySelector('.wrongPass')?.removeAttribute('hidden');
         })
         .catch(error => {
             // handle the error
@@ -45,7 +50,7 @@ export const LogIn: React.FC = () => {
             <p>Welkom terug! Log in om door te gaan.</p>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">E-mailadres:</label>
                     <input
                         type="email"
                         id="email"
@@ -54,7 +59,7 @@ export const LogIn: React.FC = () => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="password">Wachtwoord:</label>
                     <input
                         type="password"
                         id="password"
@@ -62,8 +67,10 @@ export const LogIn: React.FC = () => {
                         onChange={handlePasswordChange}
                     />
                 </div>
+                <p className="wrongPass" hidden>Aanmeldgegevens onjuist</p>
                 <button className="submit" type="submit">Aanmelden</button>
             </form>
+            
         </div>
     );
 };
