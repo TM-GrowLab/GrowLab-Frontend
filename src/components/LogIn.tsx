@@ -35,12 +35,14 @@ export const LogIn: React.FC = () => {
             // store the token in local storage
             localStorage.setItem('token', data.token);
 
-            // proceed to home
-            // show wrong password message
-            document.querySelector('.wrongPass')?.removeAttribute('hidden');
+            // proceed to feed
+            // make it legit
+            window.location.href = '/feed';
         })
         .catch(error => {
             // handle the error
+            // show wrong password message
+            document.querySelector('.wrongPass')?.removeAttribute('hidden')
         });
     };
 
