@@ -259,7 +259,6 @@ header img {
 }
 
 /* Login */
-
 .login {
   display: flex;
   flex-direction: column;
@@ -313,3 +312,45 @@ header img {
 .login .wrongPass{
   color: var(--Red);
 }
+
+/* Coaching traject card */
+
+.coaching_traject {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: fit-content;
+  background-color: var(--White);
+  padding: 1em 1em 1em 1em;
+  border-radius: 30px 30px 0px 30px;
+}
+
+.coaching_traject h3, .coaching_traject p {
+  margin: 0 0 0 0;
+  padding: 0.5vh 0 0.5vh 0;
+}
+
+.coaching_traject img.photo {
+  width: 8em;
+  height: 8em;
+  border-radius: 100%;
+  margin-right: 1em;
+}
+
+.coaching_traject div.cardInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.membersInfo, .sessionInfo, .progress{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.progress progress{
+  margin: 0 1em 0 1em;
+}
+
