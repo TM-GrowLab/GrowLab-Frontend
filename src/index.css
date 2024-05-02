@@ -257,3 +257,55 @@ header img {
 .card_container div div {
   width: 75%;
 }
+
+/* Login */
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 30vw;
+  background-color: var(--Porcelean);
+  border-radius: 35px 35px 0px 35px;
+  box-shadow: var(--Box-Shadow);
+  margin: auto;
+}
+
+.login h2, .login p {
+  width: 28vw;
+}
+
+.login form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30vh;
+  width: 100%;
+}
+
+.login form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.login form div input {
+  width: 28vw;
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--LightGrey);
+  margin: 1vh 0 1vh 0;
+}
+
+.login .submit{
+  width: 28vw;
+  height: 50px;
+  background-color: var(--Meadow-Haze);
+  border: none;
+  border-radius: 25px;
+}

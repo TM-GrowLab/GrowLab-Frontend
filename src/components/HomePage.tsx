@@ -2,6 +2,8 @@ import imgHeader from "../images/Header_img.png";
 import logoGrowLab from "../images/LogoGrowLab.png";
 import { NavBar } from "./NavBar";
 import { Succesverhaal } from "./HomePage/Succesverhaal";
+import { useState } from "react";
+import LogIn from "./LogIn";
 
 export const HomePage = () => {
 
@@ -14,7 +16,7 @@ export const HomePage = () => {
                         <h1>stap te zetten.</h1>
                         <h5>Met GrowLab</h5>
                         <div className="header_buttons">
-                            <button id="aanmelden" className="sec_button_header">Aanmelden</button>
+                            <button id="aanmelden" className="sec_button_header" >Aanmelden</button>
                             <button id="registeren" className="pri_button_header">Registeren</button>
                         </div>
                     </div>
@@ -64,4 +66,5 @@ export const HomePage = () => {
                 </section>
         </>
     );
+
 }
