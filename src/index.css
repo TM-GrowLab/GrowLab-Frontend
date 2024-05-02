@@ -420,7 +420,10 @@ header img {
 
 .progress progress{
   margin: 0 1em 0 1em;
+}
+
 /* Footer */
+
 .footer_container{
   background-color: white;
   padding: 1em 8em;
