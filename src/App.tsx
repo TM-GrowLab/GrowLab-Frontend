@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { HomePage } from './components/HomePage';
 import { LogIn } from './components/LogIn';
+import { AanmeldGegevens } from './components/Registreren/AanmeldGegevens';
 
 
 const App: React.FC = () => {
@@ -11,6 +12,7 @@ const App: React.FC = () => {
         <Route path="/" Component={HomePage} />
         <Route path="/login" Component={LogIn} />
 
+        <Route path="/aanmeldgegevens" Component={AanmeldGegevens} />
       </Routes>
     </BrowserRouter>
   );
