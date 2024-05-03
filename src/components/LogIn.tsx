@@ -30,10 +30,10 @@ export const LogIn: React.FC = () => {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            console.log(data.access_token);
 
             // store the token in local storage
-            localStorage.setItem('token', data.token);
+            localStorage.setItem('token', data.access_token);
 
             // proceed to feed
             // make it legit

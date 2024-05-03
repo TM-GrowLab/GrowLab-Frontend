@@ -8,7 +8,7 @@ import more_vert from '../images/icons/more_vert_FILL0_wght400_GRAD0_opsz24.svg'
 interface CoachingTrajectCardProps {
     imgUrl: string;
     cardTitle: string;
-    classHost: string;
+    // classHost: string;
     progress: number;
     progressMax: number;
     members: number;
@@ -19,7 +19,7 @@ export const CoachingTrajectCard: React.FC<CoachingTrajectCardProps> = (
     { 
         imgUrl, 
         cardTitle, 
-        classHost, 
+        // classHost, 
         progress,
         progressMax,
         members,
@@ -30,7 +30,7 @@ export const CoachingTrajectCard: React.FC<CoachingTrajectCardProps> = (
             <img className='photo' src={imgUrl} alt="" />
             <div className='cardInformation'>
                 <h3 className='cardTitle'>{cardTitle}</h3>
-                <p className='classHost'>{classHost}</p>
+                {/* <p className='classHost'>{classHost}</p> */}
                 <div className='progress'>
                     <p> {progress} / {progressMax} </p>
                     <progress value={progress} max={progressMax}> {progress} </progress>

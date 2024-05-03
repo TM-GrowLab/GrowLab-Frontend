@@ -4,6 +4,7 @@ import { HomePage } from './components/HomePage';
 import { LogIn } from './components/LogIn';
 import { Feed } from './components/Feed';
 import { AanmeldGegevens } from './components/Registreren/AanmeldGegevens';
+import { CoachingDashboardStarter } from './components/CoachingDashBoardStarter';
 
 
 const App: React.FC = () => {
@@ -13,7 +14,7 @@ const App: React.FC = () => {
         <Route path="/" Component={HomePage} />
         <Route path="/login" Component={LogIn} />
         <Route path="/feed" Component={Feed} />
-
+        <Route path="/dashboard" Component={CoachingDashboardStarter} />
         <Route path="/aanmeldgegevens" Component={AanmeldGegevens} />
       </Routes>
     </BrowserRouter>

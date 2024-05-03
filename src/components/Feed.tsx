@@ -13,7 +13,7 @@ export const Feed: React.FC<FeedProps> = () => {
             <CoachingTrajectCard
                 imgUrl="https://via.placeholder.com/150"
                 cardTitle="Coole klas"
-                classHost="mark Business"
+                // classHost="mark Business"
                 progress={50}
                 progressMax={100}
                 members={10}
