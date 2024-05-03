@@ -76,22 +76,21 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
     return (
         <div>
             <NavBar />
-            <h1>Coaching dashboard</h1>
-            <div>
-                <div>
-                {classListResponse.map((item, index) => (
-                    <CoachingTrajectCard key={index} 
-                        imgUrl="https://via.placeholder.com/150"
-                        cardTitle={item.title}
-                        // classHost={fetchUser(item.idCoach).then((u) => u.firstName) + ' ' + fetchUser(item.idCoach).then((u) => u.lastName)}
-                        progress={item.currentCheckpoint}
-                        progressMax={item.totalCheckpoints}
-                        members={Math.round(item.idMember.toString().length/37)}
-                        nextSession={item.nextSession}
-                    />
-                ))}
+            <div className='dashboard'>
+                <div className='myClassList' style={{ backgroundColor: 'yellow' }}>
+                    {classListResponse.map((item, index) => (
+                        <CoachingTrajectCard key={index} 
+                            imgUrl="https://via.placeholder.com/150"
+                            cardTitle={item.title}
+                            // classHost={fetchUser(item.idCoach).then((u) => u.firstName) + ' ' + fetchUser(item.idCoach).then((u) => u.lastName)}
+                            progress={item.currentCheckpoint}
+                            progressMax={item.totalCheckpoints}
+                            members={Math.round(item.idMember.toString().length/37)}
+                            nextSession={item.nextSession}
+                        />
+                    ))}
                 </div>
-                <div>
+                <div className='myCoachUpdates' style={{ backgroundColor: 'yellow' }}>
 
                 </div>
             </div>
