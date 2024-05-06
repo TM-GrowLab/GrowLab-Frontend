@@ -24,7 +24,7 @@ export const LogIn: React.FC = () => {
             'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                email: email,
+                username: email,
                 pass: hashedPassword
             })
         })

@@ -435,11 +435,13 @@ header img {
 .myClassList {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   width: fit-content;
   height: 80vh;
   margin: 0 1em 0 0;
+}
+
+.myClassList .listItem {
+  margin: 0 0 1em 0;
 }
 
 .myCoachUpdates {
