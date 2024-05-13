@@ -223,6 +223,11 @@ button:hover {
   filter: brightness(95%);
 }
 
+/* Modular classes */
+.tinyIcon {
+  width: 1.5em;
+  height: 1.5em;
+}
 
 /* Navbar */
 nav {
@@ -522,7 +527,7 @@ header img {
 .postItem .bottomBar .moreBtn img{
   width: 1.5em;
   margin: 0.2em 0.2em 0.2em 0.5em;
-
+  fill: var(--Porcelean);
 }
 
 .postItem .bottomBar .likeBtn p,

@@ -41,13 +41,13 @@ export const CoachingTrajectCard: React.FC<CoachingTrajectCardProps> = (
                         <p>{members}</p>
                     </div>
                     <div className='sessionInfo'>
-                        <img src={calendarIcon} alt="next session" />
+                        <img className='tinyIcon' src={calendarIcon} alt="next session" />
                         <p>{nextSession}</p>
                     </div>
                 </div>
             </div>
             <div className='more' >
-                <img src={more_vert} alt="" />
+                <img className='tinyIcon' src={more_vert} alt="" />
             </div>
         </div>
     );

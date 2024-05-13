@@ -2,7 +2,8 @@ import React from 'react';
 import { NavBar } from './NavBar';
 
 import lamp from '../images/icons/emoji_objects_24dp_FILL0_wght400_GRAD0_opsz24.svg';
-import more_vert from '../images/icons/more_vert_FILL0_wght400_GRAD0_opsz24.svg'; 
+import more_vert_W from '../images/icons/more_vert_W_FILL0_wght400_GRAD0_opsz24.svg'; 
+import comment from '../images/icons/comment_24dp_FILL0_wght400_GRAD0_opsz24.svg';
 
 
 interface UserPostSmallProps {
@@ -42,15 +43,15 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
             </div>
             <div className="bottomBar">
                 <div className='likeBtn'>
-                    <img src={lamp} alt="" />
+                    <img className='tinyIcon' src={lamp} alt="" />
                     <p className='elza_b'>{likes}</p>
                 </div>
                 <div className='commentBtn'>
-                    <img src={lamp} alt="" />
+                    <img className='tinyIcon' src={comment} alt="" />
                     <p className='elza_b'>{comments}</p>
                 </div>
                 <div className='moreBtn'>
-                    <img src={more_vert} alt="" />
+                    <img className='tinyIcon' src={more_vert_W} alt="" />
                     <p className='elza_b'>meer</p>
                 </div>
             </div>
