@@ -212,6 +212,16 @@ input{
   font-size: 30px;
 ;}
 
+.grey_button{
+  min-width: 154px;
+  min-height: 56px;
+  border-radius: 25px;
+  color: var(--Charoal);
+  background-color: var(--LightGrey);
+  border: none;
+  box-shadow: var(--Box-Shadow);
+}
+
 button:hover {
   cursor: pointer;
   filter: brightness(95%);
@@ -473,5 +483,17 @@ div.title_box {
 
 .info {
   width: 70%;
+}
+
+/* Profile */
+.profile_container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15em;
+  background-color: var(--White);
+  width: 70%;
+  border-radius: 25px;
+  box-shadow: var(--Box-Shadow);
+  min-height: 10em;
 }
 

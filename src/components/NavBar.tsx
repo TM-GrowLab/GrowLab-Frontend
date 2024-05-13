@@ -18,6 +18,10 @@ export const NavBar = () => {
         navigate('/clients');
     }
 
+    const navigateToMyProfile = () => {
+        navigate('/myProfile')
+    }
+
     const navigateToAanmeldGegevens = () => {
         console.log('navigate to aanmeldgegevens')
         navigate('/aanmeldgegevens')
