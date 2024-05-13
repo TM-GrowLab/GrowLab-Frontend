@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { NavBar } from './NavBar';
 
 import lamp from '../images/icons/emoji_objects_24dp_FILL0_wght400_GRAD0_opsz24.svg';
@@ -7,9 +8,8 @@ import comment from '../images/icons/comment_24dp_FILL0_wght400_GRAD0_opsz24.svg
 
 
 interface UserPostSmallProps {
-    imgUrl: string;
-    name: string;
-    time: string;
+    poster: string;
+    time: Date;
     title: string;
     description: string;
     likes: number;
@@ -17,24 +17,57 @@ interface UserPostSmallProps {
 }
 
 export const UserPostSmall: React.FC<UserPostSmallProps> = (
-    { 
-        imgUrl,
-        name,
+    {
+        poster,
         time,
         title,
         description,
         likes,
         comments
     }) => {
+
+        const [user, setUser] = useState<any>();
+
+        useEffect(() => {
+            const fetchUserData = async () => {
+                try {
+                    try {
+                        let url = process.env.REACT_APP_URL;
+                        const response = await fetch(
+                            `${url}/user/${poster}`, 
+                            {}
+                        );
+                
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        setUser(await response.json());
+                    } catch (error) {
+                        console.error(error);
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+    
+            };
+
+            fetchUserData();
+            console.log(poster);
+        }, []);
+
     return (
         <div className='postItem'>
             <div className='topBar'>
                 <div className="posterInfo">
-                    <img src={imgUrl} alt="profile picture"></img>
-                    <p className="name">{name}</p>
+                    {user && (
+                        <img className='tinyImage' src={user.profilePictureUrl} alt="profile picture"></img>
+                    )}
+                    {user && ( 
+                        <p>{user.firstName} {user.lastName}</p>
+                    )}
                 </div>
                 <div className="timeInformation">
-                    <p className="time">{time}</p>
+                    <p className="time">{time.toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' })}</p>
                 </div>
             </div>
             <div className="mainContent">

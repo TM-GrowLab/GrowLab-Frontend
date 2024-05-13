@@ -11,6 +11,7 @@ interface CoachingDashboardStarterProps {
 export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> = () => {
     let myUUID = '';
     const [classListResponse, setClassListResponse] = useState<any[]>([]);
+    const [postListResponse, setPostListResponse] = useState<any[]>([]);
 
     useEffect(() => {
         const fetchUserData = async () => {
@@ -30,6 +31,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
             }
 
             fetchClassData();
+            fetchPostsData();
         };
 
         const fetchClassData = async () => {
@@ -46,6 +48,25 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
         
                 const classes = await response.json();
                 setClassListResponse(classes);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        const fetchPostsData = async () => {
+            try {
+                let url = process.env.REACT_APP_URL;
+                const response = await fetch(
+                    `${url}/post/forCoachesByMember/${myUUID}`, 
+                    {}
+                );
+        
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const posts = await response.json();
+                setPostListResponse(posts);
             } catch (error) {
                 console.error(error);
             }
@@ -94,55 +115,18 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                     ))}
                 </div>
                 <div className='myCoachUpdates' style={{ backgroundColor: 'yellow' }}>
-                        <UserPostSmall key={1} 
-                            imgUrl='https://via.placeholder.com/150'
-                            name='Joske Vermeulen'
-                            time='12:00'
-                            title='This is an examplte title.'
-                            description='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'
-                            likes={5}
-                            comments={1} 
-
-                        />
-                        <UserPostSmall key={2} 
-                            imgUrl='https://via.placeholder.com/150'
-                            name='Joske Vermeulen'
-                            time='12:00'
-                            title='This is an examplte title.'
-                            description='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'
-                            likes={5}
-                            comments={1} 
-
-                        />
-                        <UserPostSmall key={3} 
-                            imgUrl='https://via.placeholder.com/150'
-                            name='Joske Vermeulen'
-                            time='12:00'
-                            title='This is an examplte title.'
-                            description='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'
-                            likes={5}   
-                            comments={1} 
-                        />
-                        <UserPostSmall key={4} 
-                            imgUrl='https://via.placeholder.com/150'
-                            name='Joske Vermeulen'
-                            time='12:00'
-                            title='This is an examplte title.'
-                            description='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'
-                            likes={5} 
-                            comments={1} 
-
-                        />
-                        <UserPostSmall key={4} 
-                            imgUrl='https://via.placeholder.com/150'
-                            name='Joske Vermeulen'
-                            time='12:00'
-                            title='This is an examplte title.'
-                            description='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est laborum'
-                            likes={5}   
-                            comments={1} 
-
-                        />
+                    {postListResponse.map((item, index) => (
+                        <div className="listItem">
+                            <UserPostSmall key={index}
+                                poster={item.poster}
+                                time={new Date(item.created_at)}
+                                title={item.title}
+                                description={item.content}
+                                likes={Math.round(item.likes.toString().length/37)}
+                                comments={Math.round(item.comments.toString().length/37)}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
             
