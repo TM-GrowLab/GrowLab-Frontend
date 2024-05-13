@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavBar } from './NavBar';
+import {useNavigate} from 'react-router-dom';
 
 import personIcon from '../images/icons/person_raised_hand_FILL0_wght400_GRAD0_opsz24.svg';
 import calendarIcon from '../images/icons/calendar_month_FILL0_wght400_GRAD0_opsz24.svg';
 import more_vert from '../images/icons/more_vert_FILL0_wght400_GRAD0_opsz24.svg';
 
 interface CoachingTrajectCardProps {
-    imgUrl: string;
+    UUID: string;
     cardTitle: string;
-    // classHost: string;
+    classHost: string;
     progress: number;
     progressMax: number;
     members: number;
@@ -17,20 +18,54 @@ interface CoachingTrajectCardProps {
 
 export const CoachingTrajectCard: React.FC<CoachingTrajectCardProps> = (
     { 
-        imgUrl, 
+        UUID,
         cardTitle, 
-        // classHost, 
+        classHost, 
         progress,
         progressMax,
         members,
         nextSession
     }) => {
+        const [user, setUser] = useState<any>();
+
+        const navigate = useNavigate();
+        const handleOnClick = () => navigate(`/class/${UUID}`);
+
+        useEffect(() => {
+            const fetchUserData = async () => {
+                try {
+                    try {
+                        let url = process.env.REACT_APP_URL;
+                        const response = await fetch(
+                            `${url}/user/${classHost}`, 
+                            {}
+                        );
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        setUser(await response.json());
+                    } catch (error) {
+                        console.error(error);
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+    
+            };
+
+            fetchUserData();
+        }, []);
+        
     return (
-        <div className='coaching_traject'>
-            <img className='photo' src={imgUrl} alt="" />
+        <div className='coaching_traject boxShadow' onClick={handleOnClick}>
+            {user && (
+                <img className='mediumImage photo' src={user.profilePictureUrl} alt="profile picture"></img>
+            )}
             <div className='cardInformation'>
                 <h3 className='cardTitle'>{cardTitle}</h3>
-                {/* <p className='classHost'>{classHost}</p> */}
+                {user && (
+                    <p className='classHost'>{`${user.firstName} ${user.lastName}`}</p>
+                )}
                 <div className='progress'>
                     <p> {progress} / {progressMax} </p>
                     <progress value={progress} max={progressMax}> {progress} </progress>

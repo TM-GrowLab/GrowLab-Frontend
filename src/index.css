@@ -12,7 +12,7 @@
   --Red: #F27C7C;
   --LightGrey: #E7E7E7;
   --Transparent-Overlay: rgba(0, 0, 0, 0.5);
-  --Box-Shadow: rgb(183, 183, 183) 0px 4px 4px 0px;
+  --Box-Shadow: rgb(183, 183, 183) 0px 4px 4px 0px
 }
 
 /* Custom Fonts */
@@ -224,6 +224,8 @@ button:hover {
 }
 
 /* Modular classes */
+
+/* icons and images */
 .tinyIcon {
   width: 1.5em;
   height: 1.5em;
@@ -232,6 +234,33 @@ button:hover {
 .tinyImage {
   width: 3em;
   height: 3em;
+  object-fit: cover;
+}
+
+.smallIcon {
+  width: 2em;
+  height: 2em;
+}
+
+.smallImage {
+  width: 5em;
+  height: 5em;
+  object-fit: cover;
+}
+
+.mediumIcon {
+  width: 3em;
+  height: 3em;
+}
+
+.mediumImage {
+  width: 8em;
+  height: 8em;
+  object-fit: cover;
+}
+
+.boxShadow {
+  box-shadow: var(--Box-Shadow);
 }
 
 /* Navbar */

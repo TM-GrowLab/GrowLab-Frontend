@@ -88,7 +88,6 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             let u = await response.json();
-            console.log(u);
             return u;
         } catch (error) {
             console.error(error);
@@ -98,14 +97,15 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
     return (
         <div>
             <NavBar />
+            <h2>Coaching Dashboard</h2>
             <div className='dashboard'>
-                <div className='myClassList' style={{ backgroundColor: 'yellow' }}>
+                <div className='myClassList'>
                     {classListResponse.map((item, index) => (
                         <div className="listItem">
-                            <CoachingTrajectCard key={index} 
-                                imgUrl="https://via.placeholder.com/150"
+                            <CoachingTrajectCard key={item.UUID} 
+                                UUID={item.UUID}
                                 cardTitle={item.title}
-                                // classHost={fetchUser(item.idCoach).then((u) => u.firstName) + ' ' + fetchUser(item.idCoach).then((u) => u.lastName)}
+                                classHost={item.idOwner}
                                 progress={item.currentCheckpoint}
                                 progressMax={item.totalCheckpoints}
                                 members={Math.round(item.idMember.toString().length/37)}
@@ -114,10 +114,11 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                         </div>
                     ))}
                 </div>
-                <div className='myCoachUpdates' style={{ backgroundColor: 'yellow' }}>
+                <div className='myCoachUpdates'>
                     {postListResponse.map((item, index) => (
                         <div className="listItem">
-                            <UserPostSmall key={index}
+                            <UserPostSmall key={item.UUID}
+                                UUID={item.UUID}
                                 poster={item.poster}
                                 time={new Date(item.created_at)}
                                 title={item.title}
@@ -129,7 +130,6 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                     ))}
                 </div>
             </div>
-            
         </div>
     );
 };
