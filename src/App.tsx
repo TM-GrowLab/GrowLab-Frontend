@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { HomePage } from './components/HomePage';
+import { HomePage } from './pages/HomePage';
 import { LogIn } from './components/LogIn';
-import { Feed } from './components/Feed';
+import { Feed } from './pages/Feed';
 import { AanmeldGegevens } from './components/Registreren/AanmeldGegevens';
 import { CoachingDashboardStarter } from './components/CoachingDashBoardStarter';
 

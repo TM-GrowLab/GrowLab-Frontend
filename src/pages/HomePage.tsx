@@ -1,9 +1,9 @@
 import imgHeader from "../images/Header_img.png";
-import { NavBar } from "./NavBar";
-import { Succesverhaal } from "./HomePage/Succesverhaal";
+import { NavBar } from "../components/NavBar";
+import { Succesverhaal } from "../components/HomePage/Succesverhaal";
 import { useState } from "react";
-import LogIn from "./LogIn";
-import { Footer } from "./Footer";
+import LogIn from "../components/LogIn";
+import { Footer } from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {

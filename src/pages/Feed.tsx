@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavBar } from './NavBar';
-import CoachingTrajectCard from './CoachingTrajectCard';
+import { NavBar } from '../components/NavBar';
+import CoachingTrajectCard from '../components/CoachingTrajectCard';
 
 interface FeedProps {
     // Add any props here
