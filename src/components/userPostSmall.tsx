@@ -29,43 +29,49 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
         comments
     }) => {
         const [user, setUser] = useState<any>();
+        const [like, setLike] = useState<number>(likes);
 
         const navigate = useNavigate();
         const handleOnClick = () => navigate(`/post/${UUID}`);
 
-        const handleLike = async () => {
+        const handleLike = async (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            event.stopPropagation();
             try {
-            const response = await fetch(`${process.env.REACT_APP_URL}/post/like/${UUID}`, {
-                method: 'GET'
+                const token = localStorage.getItem('token');
+                const response = await fetch(`${process.env.REACT_APP_URL}/post/like/${UUID}`, {
+                    method: 'GET',
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                }
             });
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-
-            // Handle the response here
+            const responseData = await response.json();
+            setLike(like + responseData);
 
             } catch (error) {
-            console.error(error);
+                console.error(error);
             }
         };
 
         useEffect(() => {
-            const fetchUserData = async () => {
-            try {
-                let url = process.env.REACT_APP_URL;
-                const response = await fetch(
-                `${url}/user/${poster}`, 
-                {}
-                );
-            
-                if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+                const fetchUserData = async () => {
+                try {
+                    let url = process.env.REACT_APP_URL;
+                    const response = await fetch(
+                        `${url}/user/${poster}`, 
+                        {}
+                    );
+                
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    setUser(await response.json());
+                } catch (error) {
+                    console.error(error);
                 }
-                setUser(await response.json());
-            } catch (error) {
-                console.error(error);
-            }
             };
 
             fetchUserData();
@@ -93,7 +99,7 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
             <div className="bottomBar">
                 <div className='likeBtn' onClick={handleLike}>
                     <img className='tinyIcon' src={lamp} alt="" />
-                    <p className='elza_b'>{likes}</p>
+                    <p className='elza_b'>{like}</p>
                 </div>
                 <div className='commentBtn'>
                     <img className='tinyIcon' src={comment} alt="" />
