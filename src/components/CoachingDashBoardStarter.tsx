@@ -30,8 +30,13 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                 console.error(error);
             }
 
-            fetchClassData();
-            fetchPostsData();
+            try{
+                fetchClassData();
+                fetchPostsData();
+            }
+            catch (error) {
+                console.error(error);
+            }
         };
 
         const fetchClassData = async () => {
@@ -101,8 +106,8 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
             <div className='dashboard'>
                 <div className='myClassList'>
                     {classListResponse.map((item, index) => (
-                        <div className="listItem">
-                            <CoachingTrajectCard key={item.UUID} 
+                        <div className="listItem" key={item.UUID}>
+                            <CoachingTrajectCard  
                                 UUID={item.UUID}
                                 cardTitle={item.title}
                                 classHost={item.idOwner}
@@ -116,8 +121,8 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                 </div>
                 <div className='myCoachUpdates'>
                     {postListResponse.map((item, index) => (
-                        <div className="listItem">
-                            <UserPostSmall key={item.UUID}
+                        <div className="listItem" key={item.UUID}>
+                            <UserPostSmall 
                                 UUID={item.UUID}
                                 poster={item.poster}
                                 time={new Date(item.created_at)}
