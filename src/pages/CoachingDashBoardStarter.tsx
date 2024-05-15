@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { NavBar } from './NavBar';
-import CoachingTrajectCard from './CoachingTrajectCard';
+import { NavBar } from '../components/NavBar';
+import CoachingTrajectCard from '../components/CoachingTrajectCard';
 import csvtojson from 'csvtojson';
-import UserPostSmall from './userPostSmall';
+import UserPostSmall from '../components/Post/UserPostSmall';
 
 interface CoachingDashboardStarterProps {
     // Add any props here

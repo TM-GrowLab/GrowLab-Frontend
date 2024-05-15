@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-
-import { NavBar } from './NavBar';
-
-import lamp from '../images/icons/emoji_objects_24dp_FILL0_wght400_GRAD0_opsz24.svg';
-import more_vert_W from '../images/icons/more_vert_W_FILL0_wght400_GRAD0_opsz24.svg'; 
-import comment from '../images/icons/comment_24dp_FILL0_wght400_GRAD0_opsz24.svg';
 import { useNavigate } from 'react-router-dom';
+import { NavBar } from '../NavBar';
+
+import lamp from '../../images/icons/emoji_objects_24dp_FILL0_wght400_GRAD0_opsz24.svg';
+import more_vert_W from '../../images/icons/more_vert_W_FILL0_wght400_GRAD0_opsz24.svg'; 
+import comment from '../../images/icons/comment_24dp_FILL0_wght400_GRAD0_opsz24.svg';
 
 
 interface UserPostSmallProps {
@@ -77,6 +76,8 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
             fetchUserData();
         }, []);
 
+    const truncatedDescription = description.length > 280 ? description.slice(0, 280) + '...' : description;
+
     return (
         <div className='postItem boxShadow' onClick={handleOnClick}>
             <div className='topBar'>
@@ -94,7 +95,7 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
             </div>
             <div className="mainContent">
                 <h3 className="title">{title}</h3>
-                <p className="description">{description}</p>
+                <p className="description">{truncatedDescription}</p>
             </div>
             <div className="bottomBar">
                 <div className='likeBtn' onClick={handleLike}>
