@@ -59,9 +59,9 @@ export const PostPage: React.FC<PostPageProps> = () => {
     return (
         <div>
             <NavBar />
-            <div className='postMain'>
+            <div className='postMain screen flexCenter'>
                 <div className="other"></div>
-                <div className="postContainer">
+                <div className="postContainer wideMainBox ">
                     <UserPostLarge 
                         UUID={postUUID || ''}                 
                     />

@@ -95,7 +95,7 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
             </div>
             <div className="mainContent">
                 <h3 className="title">{title}</h3>
-                <p className="description">{truncatedDescription}</p>
+                <p className="description elza_p">{truncatedDescription}</p>
             </div>
             <div className="bottomBar">
                 <div className='likeBtn' onClick={handleLike}>

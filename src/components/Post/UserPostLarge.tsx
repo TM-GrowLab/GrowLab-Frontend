@@ -114,7 +114,7 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
             </div>
             <div className="mainContent">
                 <h3 className="title">{postResponse.title}</h3>
-                <p className="description">{postResponse.content}</p>
+                <p className="description elza_p">{postResponse.content}</p>
             </div>
             <div className="bottomBar">
                 <div className='likeBtn' onClick={handleLike}>
