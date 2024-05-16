@@ -10,15 +10,15 @@ export const Feed: React.FC<FeedProps> = () => {
     return (
         <div>
             <NavBar />
-            <CoachingTrajectCard
+            {/* <CoachingTrajectCard
                 imgUrl="https://via.placeholder.com/150"
                 cardTitle="Coole klas"
-                classHost="mark Business"
+                // classHost="mark Business"
                 progress={50}
                 progressMax={100}
                 members={10}
                 nextSession="15/4"
-            />
+            /> */}
         </div>
     );
 };
