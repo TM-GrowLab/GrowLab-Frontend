@@ -234,6 +234,12 @@ button:hover {
   align-items: center;
 }
 
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 /* Box sizes */
 
 .fitContent {
@@ -260,6 +266,7 @@ button:hover {
   width: 3em;
   height: 3em;
   object-fit: cover;
+  border-radius: 100%;
 }
 
 .smallIcon {
@@ -610,6 +617,38 @@ header img {
 .postItem .bottomBar .moreBtn p{
   margin: 0 0.7em 0 0;
   color: var(--Porcelean);
+}
+
+/* Post comment */
+
+.postComment{
+  background-color: var(--LightGrey);
+  border-radius: 0px 30px 30px 30px;
+  padding: 0.5em;
+  gap: 1em;
+  margin: 0 0 1em 0;
+}
+
+.inputComment{
+  gap: 1em;
+  margin: 0 0 1em 0;
+}
+
+.inputComment button{
+  background: var(--Gradient);
+  border: none;
+  height: 48px;
+  width: 128px;
+  border-radius: 25px;
+}
+
+.commentBox{
+  border-radius: 30px 30px 30px 0px;
+  background-color: var(--LightGrey);
+  width: 100%;
+  height: 3em;
+  box-sizing: border-box;
+  
 }
 
 /* Footer */

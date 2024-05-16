@@ -3,17 +3,21 @@ import React from 'react';
 interface CommentProps {
     author: string;
     content: string;
+    photo: string;
 }
 
-const Comment: React.FC<CommentProps> = ({ author, content }) => {
+export const Comment: React.FC<CommentProps> = (
+    { 
+        author, 
+        content,
+        photo
+    }) => {
     return (
-        <div className="comment">
-            <div className="photo">
-                <img src="" alt="profile picture" />
-            </div>
+        <div className="postComment flexStart">
+            <img src={photo} className='tinyImage' alt="profile picture" />
             <div className="content">
-                <h4>{author}</h4>
-                <p>{content}</p>
+                <p className='elza_b'>{author}</p>
+                <p className='elza_p'>{content}</p>
             </div>
         </div>
     );
