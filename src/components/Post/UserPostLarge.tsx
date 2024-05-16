@@ -69,6 +69,29 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
                 }
             };
 
+            const fetchCommentsData = async () => {
+                try {
+                    const response = await fetch(
+                        `${url}/post/${UUID}`, 
+                        {}
+                    );
+            
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+    
+                    const res = await response.json();
+                    setPostResponse(res);
+                    setLike(Math.round(res.likes.toString().length/37));
+                    setComments(Math.round(res.comments.toString().length/37));
+
+                    fetchUserData(res.poster);
+
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
             const fetchPostData = async () => {
                 try {
                     const response = await fetch(
