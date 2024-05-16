@@ -18,21 +18,23 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
     return (
         <>
          <NavBar />
-            <div className="container profile_container">
+            <div className="profile_container">
                 <section>
                     <img className='profile_cover' src={cover} alt="cover" />
                 </section>
-                <section>
-                    <img src={profielfoto} alt="profielfoto" />
-                    <div>
-                        <h2>Joske Vermeulen</h2>
-                        <h3>Ambitious DevOps Automator</h3>
-                    </div>
-                    <button className='grey_button'>
-                        Bewerken
+                <section className='profile_header'>
+                    <img className='profielfoto' src={profielfoto} alt="profielfoto" />
+                    <div className='info'>
+                        <div>
+                            <h2>Joske Vermeulen</h2>
+                            <h3>Ambitious DevOps Automator</h3>
+                        </div>
+                        <button className='grey_button'>
+                            Bewerken
                     </button>
+                    </div>
                 </section>
-                <section>
+                <section className='profile_part_one'>
                     <div className='labels'>
                         <div className='badges'>
                             <h3>Badges</h3>
@@ -52,6 +54,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
                             </ul>
                         </div>
                         <div className='interesses'>
+                            <h3>Interesses</h3>
                             <ul>
                                 <li>DevOps</li>
                                 <li>AI</li>
@@ -62,6 +65,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
                         </div>
                     </div>
                     <div className='over_mij'>
+                        <h3>Over mij</h3>
                         <p>
                         Ik ben Joske Vermeulen, een gedreven DevOps automator met een passie voor startups. Mijn focus ligt op het automatiseren van ontwikkelings- en operationele processen om startups te helpen bij het optimaliseren van hun technologische infrastructuur. Mijn doel is om efficiëntie en schaalbaarheid te bevorderen, en ik deel graag mijn kennis en ervaring om bij te dragen aan de groei van de startupgemeenschap. 
                         Mijn fascinatie voor de dynamiek van startups drijft mijn toewijding om innovatieve technologische oplossingen te bieden die bijdragen aan het succes van opkomende bedrijven.
@@ -95,6 +99,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
                                 <p>Thomas More</p>
                             </div>
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, repellendus. Vero nostrum asperiores magnam culpa at, distinctio reiciendis porro? Itaque ratione distinctio fugit commodi, aspernatur blanditiis quidem eos. Excepturi, temporibus!</p>
+
                         </div>
                     </div>
                 </section>
