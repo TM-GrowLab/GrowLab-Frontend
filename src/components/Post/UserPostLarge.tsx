@@ -130,6 +130,18 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
                     <p className='elza_b'>meer</p>
                 </div>
             </div>
+            <div className="comments">
+                <p>Comments:</p>
+                <div>
+                    {/* {postResponse && postResponse.comments && postResponse.comments.map((comment: any) => (
+                        <Comment 
+                            key={comment}
+                            author={comment}
+                            content={comment}
+                        />
+                    ))} */}
+                </div>
+  	        </div>
         </div>
     );
 };

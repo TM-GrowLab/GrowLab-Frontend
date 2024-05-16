@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CryptoJS from 'crypto-js';
 
 export const LogIn: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -17,8 +20,10 @@ export const LogIn: React.FC = () => {
         e.preventDefault();
 
         let hashedPassword = CryptoJS.SHA256(password).toString();
+
+        const URL = process.env.REACT_APP_URL;
         
-        fetch('http://localhost:3000/auth/login', {
+        fetch(`${URL}/auth/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -29,20 +34,26 @@ export const LogIn: React.FC = () => {
             })
         })
         .then(response => response.json())
-        .then(data => {
-            console.log(data.access_token);
+        .then(
+            data => {
+            try{
+                if(data.statusCode != 401) {
+                    console.log(data.access_token);
+                    // store the token in local storage
+                    localStorage.setItem('token', data.access_token);
+                    // redirect to dashboard
+                    navigate(`/dashboard`);
+                }
+                else {
+                    throw new Error('Wrong credentials');
+                }
 
-            // store the token in local storage
-            localStorage.setItem('token', data.access_token);
-
-            // proceed to feed
-            // make it legit
-            window.location.href = '/feed';
-        })
-        .catch(error => {
-            // handle the error
-            // show wrong password message
-            document.querySelector('.wrongPass')?.removeAttribute('hidden')
+                
+            }
+            catch (error) {
+                console.error(error);
+                document.querySelector('.wrongPass')?.removeAttribute('hidden')
+            }
         });
     };
 

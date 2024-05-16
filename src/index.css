@@ -582,7 +582,7 @@ header img {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.5em;
+  gap: 8px;
 }
 
 .postItem .bottomBar .likeBtn,
@@ -594,7 +594,7 @@ header img {
   align-items: center;
   background-color: var(--Meadow-Haze);
   border-radius: 5em;
-  
+  padding: 4px 8px 4px 8px;
 }
 
 .postItem .bottomBar .likeBtn img, 
@@ -609,6 +609,7 @@ header img {
 .postItem .bottomBar .commentBtn p,
 .postItem .bottomBar .moreBtn p{
   margin: 0 0.7em 0 0;
+  color: var(--Porcelean);
 }
 
 /* Footer */
