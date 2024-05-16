@@ -12,7 +12,7 @@
   --Red: #F27C7C;
   --LightGrey: #E7E7E7;
   --Transparent-Overlay: rgba(0, 0, 0, 0.5);
-  --Box-Shadow: rgb(183, 183, 183) 0px 4px 4px 0px;
+  --Box-Shadow: rgb(183, 183, 183) 0px 4px 4px 0px
 }
 
 /* Custom Fonts */
@@ -75,9 +75,16 @@ h5{
 
 .elza_p {
   font-family: "elza", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-style: normal;
   font-size: 16px;
+  line-height: 20px;
+}
+
+.elza_b {
+  font-family: "elza", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .placeholder {
@@ -148,7 +155,7 @@ a:visited {
 input{
   width: 450px;
   height: 20px;
-  color: var(--LightGrey);
+  color: var(--Charoal);
   background: rgb(227, 226, 226);
   border-radius: 10px;
   border: none;
@@ -226,6 +233,84 @@ button:hover {
   cursor: pointer;
   filter: brightness(95%);
 }
+
+/* Modular classes */
+
+/* flex */
+
+.flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Box sizes */
+
+.fitContent {
+  width: fit-content;
+  height: fit-content;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+}
+
+.wideMainBox {
+  width: 40%;
+}
+
+/* icons and images */
+.tinyIcon {
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.tinyImage {
+  width: 3em;
+  height: 3em;
+  object-fit: cover;
+}
+
+.smallIcon {
+  width: 2em;
+  height: 2em;
+}
+
+.smallImage {
+  width: 5em;
+  height: 5em;
+  object-fit: cover;
+}
+
+.mediumIcon {
+  width: 3em;
+  height: 3em;
+}
+
+.mediumImage {
+  width: 8em;
+  height: 8em;
+  object-fit: cover;
+}
+
+.largeIcon {
+  width: 4em;
+  height: 4em;
+}
+
+.largeImage {
+  width: 10em;
+  height: 10em;
+  object-fit: cover;
+}
+
+.boxShadow {
+  box-shadow: var(--Box-Shadow);
+}
+
+
+
 
 
 /* Navbar */
@@ -430,6 +515,110 @@ header img {
 
 .progress progress{
   margin: 0 1em 0 1em;
+}
+
+/* coaching dashboard */
+
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.myClassList {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  height: auto;
+  margin: 0 1em 0 0;
+}
+
+.myClassList .listItem {
+  margin: 0 0 1em 0;
+}
+
+.myCoachUpdates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  width: 60vw;
+  height: auto;
+}
+
+/* post item */
+
+.postItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--White);
+  border-radius: 30px 30px 0px 30px;
+  padding: 1em;
+}
+
+.postItem .topBar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.postItem .topBar .posterInfo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.postItem .topBar .posterInfo img{
+  width: 3em;
+  height: 3em;
+  border-radius: 100%;
+  margin-right: 1em;
+}
+
+.postItem .mainContent{
+  text-align: left;
+  width: 100%;
+}
+
+.postItem .bottomBar{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+
+.postItem .bottomBar .likeBtn,
+.postItem .bottomBar .commentBtn,
+.postItem .bottomBar .moreBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--Meadow-Haze);
+  border-radius: 5em;
+  
+}
+
+.postItem .bottomBar .likeBtn img, 
+.postItem .bottomBar .commentBtn img,
+.postItem .bottomBar .moreBtn img{
+  width: 1.5em;
+  margin: 0.2em 0.2em 0.2em 0.5em;
+  fill: var(--Porcelean);
+}
+
+.postItem .bottomBar .likeBtn p,
+.postItem .bottomBar .commentBtn p,
+.postItem .bottomBar .moreBtn p{
+  margin: 0 0.7em 0 0;
 }
 
 /* Footer */
