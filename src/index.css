@@ -309,7 +309,38 @@ button:hover {
   box-shadow: var(--Box-Shadow);
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+}
 
+.profile_box {
+  padding: 1em 2em;
+}
+
+.bubble li {
+  margin-right: 15px;
+  padding: 2px 6px;
+  border: 1px solid var(--Charoal);
+  box-shadow: var(--Box-Shadow);
+  border-radius: 25px;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.marginRight {
+  margin-right: 1em;
+}
+
+.marginTopZero {
+  margin-top: 0;
+}
+
+.mini_logo {
+  border-radius: 50px;
+}
 
 
 
@@ -737,4 +768,8 @@ div.info{
 
  .labels {
   width: 50%;
+ }
+
+ .bubble {
+  padding-left: 0;
  }

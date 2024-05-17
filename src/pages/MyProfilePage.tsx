@@ -9,6 +9,8 @@ import fotoErvaring1 from '../images/fotoErvaring1.png';
 import logoStartUp from '../images/logoStartUp.png';
 import logoThomasMore from '../images/logoThomasMore.png';
 import profielfoto from '../images/profielfoto.png';
+import userTestData from '../components/UserTestData';
+import UserTestData from '../components/UserTestData';
 
 interface MyProfilePageProps {
     // Add any props here
@@ -18,6 +20,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
     return (
         <>
          <NavBar />
+         <UserTestData />
             <div className="profile_container">
                 <section>
                     <img className='profile_cover' src={cover} alt="cover" />
@@ -44,7 +47,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
                         </div>
                         <div className='talenten'>
                             <h3>Talenten</h3>
-                            <ul>
+                            <ul className='row bubble'>
                                 <li>Docker</li>
                                 <li>AWS</li>
                                 <li>Git</li>
@@ -55,7 +58,7 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
                         </div>
                         <div className='interesses'>
                             <h3>Interesses</h3>
-                            <ul>
+                            <ul className='row bubble'>
                                 <li>DevOps</li>
                                 <li>AI</li>
                                 <li>Robotica</li>
@@ -72,16 +75,16 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
                         </p>
                     </div>
                 </section>
-                <section className='Startup'>
+                <section className='Startup profile_box'>
                     <h3>Startup geschiedenis</h3>
-                    <div className='startup'>
-                        <img src={logoStartUp} alt="Logo Startup" />
-                        <div>
-                            <div>
-                                <p className='elza_20_bold'>Digital Capybara</p>
+                    <div className='startup row'>
+                        <img className='mini_logo marginRight' src={logoStartUp} alt="Logo Startup" />
+                        <div className=''>
+                            <div className='row alignCenter'>
+                                <p className='elza_20_bold marginRight'>Digital Capybara</p>
                                 <p>DevOps Automator</p>
                             </div>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, repellendus. Vero nostrum asperiores magnam culpa at, distinctio reiciendis porro? Itaque ratione distinctio fugit commodi, aspernatur blanditiis quidem eos. Excepturi, temporibus!</p>
+                            <p className='marginTopZero'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, repellendus. Vero nostrum asperiores magnam culpa at, distinctio reiciendis porro? Itaque ratione distinctio fugit commodi, aspernatur blanditiis quidem eos. Excepturi, temporibus!</p>
                             <div>
                                 <img src={fotoErvaring} alt="foto" />
                                 <img src={fotoErvaring1} alt="foto" />
@@ -89,16 +92,16 @@ export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
                         </div>
                     </div>
                 </section>
-                <section>
+                <section className='profile_box'>
                     <h3>Opleidingen & ervaringen</h3>
-                    <div className='ervaring'>
-                        <img src={logoThomasMore} alt="Logo opleiding" />
+                    <div className='ervaring row'>
+                        <img className='mini_logo marginRight' src={logoThomasMore} alt="Logo opleiding" />
                         <div>
-                            <div>
-                                <p className='elza_20_bold'>Elektronica ICT</p>
+                            <div className='row alignCenter'>
+                                <p className='elza_20_bold marginRight'>Elektronica ICT</p>
                                 <p>Thomas More</p>
                             </div>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, repellendus. Vero nostrum asperiores magnam culpa at, distinctio reiciendis porro? Itaque ratione distinctio fugit commodi, aspernatur blanditiis quidem eos. Excepturi, temporibus!</p>
+                            <p className='marginTopZero'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, repellendus. Vero nostrum asperiores magnam culpa at, distinctio reiciendis porro? Itaque ratione distinctio fugit commodi, aspernatur blanditiis quidem eos. Excepturi, temporibus!</p>
 
                         </div>
                     </div>
