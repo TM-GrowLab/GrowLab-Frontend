@@ -11,7 +11,7 @@ const fetchUsers = async (): Promise<User[]> => {
 export const useFetchUsers = () => {
     const { data, status, error } = useQuery<User[], Error>({
         queryKey: ['users'], // Add the queryKey property
-        queryFn: fetchUsers // Add the queryFn property
+        queryFn: fetchUsers 
     });
 
     return {

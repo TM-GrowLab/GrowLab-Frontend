@@ -1,5 +1,5 @@
 export interface User {
-    UUID: number;
+    UUID: string;
     firstName: string;
     lastName: string;
     email: string;
@@ -10,9 +10,9 @@ export interface User {
     dateJoined: Date;
     profilePictureUrl: string;
     bannerPictureUrl: string;
-    educationId: number;
-    excperienceId: number;
-    talenten: string[];
-    interesses: string[];
-    aboutMe: Text;
+    educationId: string;
+    experienceId: string;
+    talenten: string;
+    interesses: string;
+    about: string;
 }
