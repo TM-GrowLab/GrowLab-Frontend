@@ -386,7 +386,7 @@ header img {
   margin-right: 1em;
 }
 
-.succesverhaal h2,h4 {
+.succesverhaal h2, .succesverhaal h4 {
   color: var(--White);
   margin: 0;
   z-index: 10;
@@ -473,9 +473,9 @@ header img {
   color: var(--Red);
 }
 
-/* Coaching traject card */
+/* Coaching Class card */
 
-.coaching_traject {
+.coaching_Class {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -485,19 +485,19 @@ header img {
   border-radius: 30px 30px 0px 30px;
 }
 
-.coaching_traject h3, .coaching_traject p {
+.coaching_Class h3, .coaching_Class p {
   margin: 0 0 0 0;
   padding: 0.5vh 0 0.5vh 0;
 }
 
-.coaching_traject img.photo {
+.coaching_Class img.photo {
   width: 8em;
   height: 8em;
   border-radius: 100%;
   margin-right: 1em;
 }
 
-.coaching_traject div.cardInformation {
+.coaching_Class div.cardInformation {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -512,6 +512,27 @@ header img {
 
 .progress progress{
   margin: 0 1em 0 1em;
+}
+
+/* Session card */
+
+.sessionCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--White);
+  border-radius: 30px 30px 0px 30px;
+  padding: 1em;
+  width: 100%;
+}
+
+.sessionCard *{
+  margin: 0 0 0.5em 0;
+}
+
+.sessionCard *:nth-last-child(1){
+  margin: 0;
 }
 
 /* coaching dashboard */

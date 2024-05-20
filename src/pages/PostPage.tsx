@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import csvtojson from 'csvtojson';
 
 import { NavBar } from '../components/NavBar';
-import CoachingTrajectCard from '../components/CoachingTrajectCard';
+import CoachingClassCard from '../components/CoachingClassCard';
 import UserPostSmall from '../components/Post/UserPostSmall';
 import UserPostLarge from '../components/Post/UserPostLarge';
 

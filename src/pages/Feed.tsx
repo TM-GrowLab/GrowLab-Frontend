@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavBar } from '../components/NavBar';
-import CoachingTrajectCard from '../components/CoachingTrajectCard';
+import CoachingClassCard from '../components/CoachingClassCard';
 
 interface FeedProps {
     // Add any props here
@@ -10,7 +10,7 @@ export const Feed: React.FC<FeedProps> = () => {
     return (
         <div>
             <NavBar />
-            {/* <CoachingTrajectCard
+            {/* <CoachingClassCard
                 imgUrl="https://via.placeholder.com/150"
                 cardTitle="Coole klas"
                 // classHost="mark Business"

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavBar } from '../components/NavBar';
-import CoachingTrajectCard from '../components/CoachingTrajectCard';
+import CoachingClassCard from '../components/CoachingClassCard';
 import csvtojson from 'csvtojson';
 import UserPostSmall from '../components/Post/UserPostSmall';
 
@@ -107,7 +107,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                 <div className='myClassList'>
                     {classListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
-                            <CoachingTrajectCard  
+                            <CoachingClassCard  
                                 UUID={item.UUID}
                                 cardTitle={item.title}
                                 classHost={item.idOwner}

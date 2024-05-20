@@ -186,7 +186,7 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
                 <div>
                     <div className="inputComment flexStart">
                         <input type="text" className='commentBox' />
-                        <button onClick={handleComment}>✈</button>
+                        <button onClick={handleComment}>plaatsen</button>
                     </div>
                     
                     {commentList && commentList.map((comment: any) => (
