@@ -83,28 +83,55 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
         }
     }
 
+    const completedCheckpoints = classResponse && classResponse.sessions && classResponse.sessions.filter((item: Session) => item.completed).length;
+
     return (
         <div>
             <NavBar />
-            <div className='screen flexCenter'>
-                <div className="sessions">
+            <h2 className="pageTitle">{classResponse && classResponse.title}</h2>
+            <div className="progressClass">
+                <progress value={completedCheckpoints} max={classResponse && classResponse.sessions && classResponse.sessions.length}></progress>
+                <p>{completedCheckpoints} / {classResponse && classResponse.sessions && classResponse.sessions.length} checkpoints completed</p>
+            </div>
+            <div className='dashboard'>
+                <div className="myClassList">
                     {classResponse && 
                     classResponse.sessions && 
                     classResponse.sessions != null && 
                     classResponse.sessions.length > 0 && 
                     classResponse.sessions.map((item: Session) => (
-                        <SessionCard  
-                            key={item.UUID}
-                            Title={item.title}
-                            Description={item.description}
-                            sDate={item.date} 
-                            URL={item.urlSession}
-                        />
+                        <div className="listItem" key={item.UUID}>
+                            <SessionCard  
+                                key={item.UUID}
+                                Title={item.title}
+                                Description={item.description}
+                                sDate={item.date} 
+                                URL={item.urlSession}
+                            />
+                        </div>
                         
                     ))}
-                </div>
-                <div className="coachingClassContainer wideMainBox ">
+                    <div className="myCoachUpdates">
+                        {classResponse && 
+                        classResponse.posts && 
+                        classResponse.posts != null && 
+                        classResponse.posts.length > 0 && 
+                        classResponse.posts.map((item: any) => (
+                        <div className="listItem" key={item.UUID}>
 
+                            <UserPostSmall  
+                                key={item.UUID}
+                                UUID={item.UUID}
+                                title={item.title}
+                                description={item.content} 
+                                poster={item.poster} 
+                                time={item.created_at}
+                                likes={Math.round(item.likes.toString().length/37)}
+                                comments={Math.round(item.comments.toString().length/37)}
+                            />
+                        </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
