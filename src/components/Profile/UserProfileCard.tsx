@@ -10,6 +10,7 @@ import fotoErvaring from '../../images/fotoErvaring.png';
 import fotoErvaring1 from '../../images/fotoErvaring1.png';
 import logoStartUp from '../../images/logoStartUp.png';
 import profielfoto from '../../images/profielfoto.png';
+import StartupBox from '../../components/Profile/StartupBox';
 
 
 const UserList: React.FC = () => {
@@ -82,20 +83,7 @@ const UserList: React.FC = () => {
                     </section>
                     <section className='Startup profile_box'>
                         <h3>Startup geschiedenis</h3>
-                        <div className='startup row'>
-                            <img className='mini_logo marginRight' src={logoStartUp} alt="Logo Startup" />
-                            <div className=''>
-                                <div className='row alignCenter'>
-                                    <p className='elza_20_bold marginRight'>Digital Capybara</p>
-                                    <p>DevOps Automator</p>
-                                </div>
-                                <p className='marginTopZero'>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, repellendus. Vero nostrum asperiores magnam culpa at, distinctio reiciendis porro? Itaque ratione distinctio fugit commodi, aspernatur blanditiis quidem eos. Excepturi, temporibus!</p>
-                                <div>
-                                    <img src={fotoErvaring} alt="foto" />
-                                    <img src={fotoErvaring1} alt="foto" />
-                                </div>
-                            </div>
-                        </div>
+                        <StartupBox idOwner={user.UUID} />
                     </section>
                     <section className='profile_box'>
                         <h3>Opleidingen & ervaringen</h3>
