@@ -2,14 +2,6 @@
 import React from 'react';
 import { useFetchUsers } from '../../hooks/useFetchUsers';
 import ExperienceBox from  '../../components/Profile/ExperienceBox';
-import cover from '../../images/cover.png';
-import badge1 from '../../images/badge1.png';
-import badge2 from '../../images/badge2.png';
-import badge3 from '../../images/badge3.png';
-import fotoErvaring from '../../images/fotoErvaring.png';
-import fotoErvaring1 from '../../images/fotoErvaring1.png';
-import logoStartUp from '../../images/logoStartUp.png';
-import profielfoto from '../../images/profielfoto.png';
 import StartupBox from '../../components/Profile/StartupBox';
 
 
@@ -33,12 +25,11 @@ const UserList: React.FC = () => {
         <div>
             {users.map(user => (
                 <div className="profile_container" key={user.UUID}>
-                    <p>{user.UUID}</p>
                     <section>
-                        <img className='profile_cover' src={cover} alt="cover" />
+                        <img className='profile_cover' src={user.bannerPictureUrl} alt="cover" />
                     </section>
                     <section className='profile_header'>
-                        <img className='profielfoto' src={profielfoto} alt="profielfoto" />
+                        <img className='profielfoto' src={user.profilePictureUrl} alt="profielfoto" />
                         <div className='info'>
                             <div>
                                 <h2>{user.firstName} {user.lastName}</h2>
@@ -51,12 +42,6 @@ const UserList: React.FC = () => {
                     </section>
                     <section className='profile_part_one'>
                         <div className='labels'>
-                            <div className='badges'>
-                                <h3>Badges</h3>
-                                <img src={badge1} alt="badge" />
-                                <img src={badge2} alt="badge" />
-                                <img src={badge3} alt="badge" />
-                            </div>
                             <div className='talenten'>
                                 <h3>Talenten</h3>
                                 <ul className='row bubble'>

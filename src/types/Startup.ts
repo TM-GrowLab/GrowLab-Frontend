@@ -6,4 +6,6 @@ export interface Startup {
     postId: string;
     institution: string;
     description: string;
+    logoUrl: string;
+    fotoUrl: string;
 }

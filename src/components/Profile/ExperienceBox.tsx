@@ -1,6 +1,5 @@
 import React from 'react';
 import { useFetchExperience } from '../../hooks/useFetchExperienceFromUser';
-import logoThomasMore from '../../images/logoThomasMore.png';
 import { Experience } from '../../types/Experience';
 
 interface ExperienceBoxProps {
@@ -26,7 +25,7 @@ const ExperienceBox: React.FC<ExperienceBoxProps> = ({ UUID }) => {
         <div>
             {experiences.map((exp: Experience) => (
                 <div key={exp.UUID} className='ervaring row'>
-                    <img className='mini_logo marginRight' src={logoThomasMore} alt="Logo opleiding" />
+                    <img className='mini_logo marginRight' src={exp.icon} alt="Logo opleiding" />
                     <div>
                         <div className='row alignCenter'>
                             <p className='elza_20_bold marginRight'>{exp.title}</p>
