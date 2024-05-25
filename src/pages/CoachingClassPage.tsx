@@ -89,7 +89,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
         <div>
             <NavBar />
             <h2 className="pageTitle">{classResponse && classResponse.title}</h2>
-            <div className="progressClass">
+            <div className="progressClass pageTitle">
                 <progress value={completedCheckpoints} max={classResponse && classResponse.sessions && classResponse.sessions.length}></progress>
                 <p>{completedCheckpoints} / {classResponse && classResponse.sessions && classResponse.sessions.length} checkpoints completed</p>
             </div>
@@ -100,7 +100,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                     classResponse.sessions != null && 
                     classResponse.sessions.length > 0 && 
                     classResponse.sessions.map((item: Session) => (
-                        <div className="listItem" key={item.UUID}>
+                        <div className={`listItem ${item.completed == true ? 'completed' : ''}`} key={item.UUID}>
                             <SessionCard  
                                 key={item.UUID}
                                 Title={item.title}
@@ -111,13 +111,15 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                         </div>
                         
                     ))}
-                    <div className="myCoachUpdates">
+                    
+                </div>
+                <div className="myCoachUpdates">
                         {classResponse && 
                         classResponse.posts && 
                         classResponse.posts != null && 
                         classResponse.posts.length > 0 && 
                         classResponse.posts.map((item: any) => (
-                        <div className="listItem" key={item.UUID}>
+                        <div className="" key={item.UUID}>
 
                             <UserPostSmall  
                                 key={item.UUID}
@@ -132,7 +134,6 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                         </div>
                         ))}
                     </div>
-                </div>
             </div>
         </div>
     );

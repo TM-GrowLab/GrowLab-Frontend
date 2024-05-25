@@ -430,7 +430,7 @@ header img {
   justify-content: center;
   height: auto;
   width: 30vw;
-  background-color: var(--Porcelean);
+  background-color: var(--White);
   border-radius: 35px 35px 0px 35px;
   box-shadow: var(--Box-Shadow);
   margin: auto;
@@ -445,7 +445,6 @@ header img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 30vh;
   width: 100%;
 }
 
@@ -467,10 +466,11 @@ header img {
 
 .login .submit{
   width: 28vw;
-  height: 50px;
+  height: 3em;
   background-color: var(--Meadow-Haze);
   border: none;
-  border-radius: 25px;
+  border-radius: 3em;
+  margin: 1vh 0 1vh 0;
 }
 
 .login .wrongPass{
@@ -528,7 +528,7 @@ header img {
   background-color: var(--White);
   border-radius: 30px 30px 0px 30px;
   padding: 1em;
-  width: fit-content;
+  width: 15vw;
 }
 
 .sessionCard *{
@@ -537,6 +537,12 @@ header img {
 
 .sessionCard *:nth-last-child(1){
   margin: 0;
+}
+
+.completed {
+  opacity: 0.5;
+  order: 100;
+  pointer-events: none;
 }
 
 /* coaching dashboard */

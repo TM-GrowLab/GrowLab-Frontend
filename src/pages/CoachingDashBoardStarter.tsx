@@ -3,6 +3,7 @@ import { NavBar } from '../components/NavBar';
 import CoachingClassCard from '../components/CoachingClassCard';
 import csvtojson from 'csvtojson';
 import UserPostSmall from '../components/Post/UserPostSmall';
+import { Session } from '../types/session';
 
 interface CoachingDashboardStarterProps {
     // Add any props here
@@ -111,8 +112,8 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                                 UUID={item.UUID}
                                 cardTitle={item.title}
                                 classHost={item.idOwner}
-                                progress={item.currentCheckpoint}
-                                progressMax={item.totalCheckpoints}
+                                progress={item && item.sessions && item.sessions.filter((item: Session) => item.completed).length}
+                                progressMax={item && item.sessions && item.sessions.length}
                                 members={Math.round(item.idMember.toString().length/37)}
                                 nextSession={item.nextSession}
                             />
