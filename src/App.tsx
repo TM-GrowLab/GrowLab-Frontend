@@ -11,7 +11,7 @@ import CoachingClassPage from './pages/CoachingClassPage';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" Component={HomePage} />
         <Route path="/login" Component={LogIn} />
