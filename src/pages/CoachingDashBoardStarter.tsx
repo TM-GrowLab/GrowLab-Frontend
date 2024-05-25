@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { NavBar } from '../components/NavBar';
-import CoachingTrajectCard from '../components/CoachingTrajectCard';
+import CoachingClassCard from '../components/CoachingClassCard';
 import csvtojson from 'csvtojson';
 import UserPostSmall from '../components/Post/UserPostSmall';
+import { Session } from '../types/session';
 
 interface CoachingDashboardStarterProps {
     // Add any props here
@@ -102,17 +103,17 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
     return (
         <div>
             <NavBar />
-            <h2>Coaching Dashboard</h2>
+            <h2 className='pageTitle'>Coaching Dashboard</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
                     {classListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
-                            <CoachingTrajectCard  
+                            <CoachingClassCard  
                                 UUID={item.UUID}
                                 cardTitle={item.title}
                                 classHost={item.idOwner}
-                                progress={item.currentCheckpoint}
-                                progressMax={item.totalCheckpoints}
+                                progress={item && item.sessions && item.sessions.filter((item: Session) => item.completed).length}
+                                progressMax={item && item.sessions && item.sessions.length}
                                 members={Math.round(item.idMember.toString().length/37)}
                                 nextSession={item.nextSession}
                             />

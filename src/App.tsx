@@ -6,6 +6,7 @@ import { Feed } from './pages/Feed';
 import { AanmeldGegevens } from './components/Registreren/AanmeldGegevens';
 import { CoachingDashboardStarter } from './pages/CoachingDashBoardStarter';
 import PostPage from './pages/PostPage';
+import CoachingClassPage from './pages/CoachingClassPage';
 
 
 const App: React.FC = () => {
@@ -18,6 +19,7 @@ const App: React.FC = () => {
         <Route path="/dashboard" Component={CoachingDashboardStarter} />
         <Route path="/aanmeldgegevens" Component={AanmeldGegevens} />
         <Route path="/post/:postUUID" Component={PostPage} />
+        <Route path="/class/:classUUID" Component={CoachingClassPage} />
       </Routes>
     </BrowserRouter>
   );

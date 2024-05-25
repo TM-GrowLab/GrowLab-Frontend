@@ -234,6 +234,12 @@ button:hover {
   align-items: center;
 }
 
+.flexStart {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 /* Box sizes */
 
 .fitContent {
@@ -260,6 +266,7 @@ button:hover {
   width: 3em;
   height: 3em;
   object-fit: cover;
+  border-radius: 100%;
 }
 
 .smallIcon {
@@ -299,7 +306,11 @@ button:hover {
   box-shadow: var(--Box-Shadow);
 }
 
+/* titles */
 
+.pageTitle{
+  margin: 0 0 2vh 8vw;
+}
 
 
 
@@ -379,7 +390,7 @@ header img {
   margin-right: 1em;
 }
 
-.succesverhaal h2,h4 {
+.succesverhaal h2, .succesverhaal h4 {
   color: var(--White);
   margin: 0;
   z-index: 10;
@@ -419,7 +430,7 @@ header img {
   justify-content: center;
   height: auto;
   width: 30vw;
-  background-color: var(--Porcelean);
+  background-color: var(--White);
   border-radius: 35px 35px 0px 35px;
   box-shadow: var(--Box-Shadow);
   margin: auto;
@@ -434,7 +445,6 @@ header img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 30vh;
   width: 100%;
 }
 
@@ -456,19 +466,20 @@ header img {
 
 .login .submit{
   width: 28vw;
-  height: 50px;
+  height: 3em;
   background-color: var(--Meadow-Haze);
   border: none;
-  border-radius: 25px;
+  border-radius: 3em;
+  margin: 1vh 0 1vh 0;
 }
 
 .login .wrongPass{
   color: var(--Red);
 }
 
-/* Coaching traject card */
+/* Coaching Class card */
 
-.coaching_traject {
+.coaching_Class {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -478,19 +489,19 @@ header img {
   border-radius: 30px 30px 0px 30px;
 }
 
-.coaching_traject h3, .coaching_traject p {
+.coaching_Class h3, .coaching_Class p {
   margin: 0 0 0 0;
   padding: 0.5vh 0 0.5vh 0;
 }
 
-.coaching_traject img.photo {
+.coaching_Class img.photo {
   width: 8em;
   height: 8em;
   border-radius: 100%;
   margin-right: 1em;
 }
 
-.coaching_traject div.cardInformation {
+.coaching_Class div.cardInformation {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -505,6 +516,33 @@ header img {
 
 .progress progress{
   margin: 0 1em 0 1em;
+}
+
+/* Session card */
+
+.sessionCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--White);
+  border-radius: 30px 30px 0px 30px;
+  padding: 1em;
+  width: 15vw;
+}
+
+.sessionCard *{
+  margin: 0 0 0.5em 0;
+}
+
+.sessionCard *:nth-last-child(1){
+  margin: 0;
+}
+
+.completed {
+  opacity: 0.5;
+  order: 100;
+  pointer-events: none;
 }
 
 /* coaching dashboard */
@@ -527,6 +565,7 @@ header img {
 
 .myClassList .listItem {
   margin: 0 0 1em 0;
+  width: fit-content;
 }
 
 .myCoachUpdates {
@@ -582,7 +621,7 @@ header img {
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.5em;
+  gap: 8px;
 }
 
 .postItem .bottomBar .likeBtn,
@@ -594,7 +633,7 @@ header img {
   align-items: center;
   background-color: var(--Meadow-Haze);
   border-radius: 5em;
-  
+  padding: 4px 8px 4px 8px;
 }
 
 .postItem .bottomBar .likeBtn img, 
@@ -609,6 +648,39 @@ header img {
 .postItem .bottomBar .commentBtn p,
 .postItem .bottomBar .moreBtn p{
   margin: 0 0.7em 0 0;
+  color: var(--Porcelean);
+}
+
+/* Post comment */
+
+.postComment{
+  background-color: var(--LightGrey);
+  border-radius: 0px 30px 30px 30px;
+  padding: 0.5em;
+  gap: 1em;
+  margin: 0 0 1em 0;
+}
+
+.inputComment{
+  gap: 1em;
+  margin: 0 0 1em 0;
+}
+
+.inputComment button{
+  background: var(--Gradient);
+  border: none;
+  height: 48px;
+  width: 128px;
+  border-radius: 25px;
+}
+
+.commentBox{
+  border-radius: 30px 30px 30px 0px;
+  background-color: var(--LightGrey);
+  width: 100%;
+  height: 3em;
+  box-sizing: border-box;
+  
 }
 
 /* Footer */
