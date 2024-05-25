@@ -11,15 +11,15 @@ import CoachingClassPage from './pages/CoachingClassPage';
 
 const App: React.FC = () => {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" Component={HomePage} />
-        <Route path="/login" Component={LogIn} />
-        <Route path="/feed" Component={Feed} />
-        <Route path="/dashboard" Component={CoachingDashboardStarter} />
-        <Route path="/aanmeldgegevens" Component={AanmeldGegevens} />
-        <Route path="/post/:postUUID" Component={PostPage} />
-        <Route path="/class/:classUUID" Component={CoachingClassPage} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/feed" element={<Feed />} />
+        <Route path="/dashboard" element={<CoachingDashboardStarter />} />
+        <Route path="/aanmeldgegevens" element={<AanmeldGegevens />} />
+        <Route path="/post/:postUUID" element={<PostPage />} />
+        <Route path="/class/:classUUID" element={<CoachingClassPage />} />
       </Routes>
     </BrowserRouter>
   );
