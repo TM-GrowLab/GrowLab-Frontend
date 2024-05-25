@@ -103,7 +103,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
     return (
         <div>
             <NavBar />
-            <h2 className='pageTitle'>Coaching Dashboard</h2>
+            <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
                     {classListResponse.map((item, index) => (
