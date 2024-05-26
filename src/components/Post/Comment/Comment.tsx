@@ -14,7 +14,7 @@ export const Comment: React.FC<CommentProps> = (
     }) => {
     return (
         <div className="postComment flexStart">
-            <img src={photo} className='tinyImage' alt="profile picture" />
+            <img src={photo} className='tinyImage' alt="profile" />
             <div className="content">
                 <p className='elza_b'>{author}</p>
                 <p className='elza_p'>{content}</p>

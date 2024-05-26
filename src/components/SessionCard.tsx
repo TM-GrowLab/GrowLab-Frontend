@@ -1,5 +1,3 @@
-import {useNavigate} from 'react-router-dom';
-
 interface SessionCardProps {
     Title: string;
     Description: string;

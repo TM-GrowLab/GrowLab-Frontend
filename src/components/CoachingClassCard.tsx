@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { NavBar } from './NavBar';
+// import { NavBar } from './NavBar';
 import {useNavigate} from 'react-router-dom';
 
 import personIcon from '../images/icons/person_raised_hand_FILL0_wght400_GRAD0_opsz24.svg';
@@ -54,12 +54,12 @@ export const CoachingClassCard: React.FC<CoachingClassCardProps> = (
             };
 
             fetchUserData();
-        }, []);
+        });
         
     return (
         <div className='coaching_Class boxShadow' onClick={handleOnClick}>
             {user && (
-                <img className='mediumImage photo' src={user.profilePictureUrl} alt="profile picture"></img>
+                <img className='mediumImage photo' src={user.profilePictureUrl} alt="profile"></img>
             )}
             <div className='cardInformation'>
                 <h3 className='cardTitle'>{cardTitle}</h3>

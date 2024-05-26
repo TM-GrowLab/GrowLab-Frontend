@@ -27,9 +27,9 @@ export const Footer = () => {
                         </div>
                         <div>
                             <ul>
-                                <li><a href="">Community</a></li>
-                                <li><a href="">Learning</a></li>
-                                <li><a href="">Klanten</a></li>
+                                <li><a href="#">Community</a></li>
+                                <li><a href="#">Learning</a></li>
+                                <li><a href="#">Klanten</a></li>
                             </ul>
                         </div>
                     </section>
