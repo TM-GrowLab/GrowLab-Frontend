@@ -1,13 +1,14 @@
 const express = require("express");
-// eslint-disable-next-line no-unused-vars
-// const bodyParser = require('body-parser');
+const dotenv = require('dotenv');
+
 const path = require("path");
 const app = express();
-const port = process.env.PORT || 8080;
 
-app.use(express.static(path.join(__dirname, "build")));
+dotenv.config();
+
+app.use(express.static(path.join('./', "build")));
 
 // This route serves the React app
-app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, "build", "index.html")));
+app.get('/', (req, res) => res.sendFile(path.resolve('./', "build", "index.html")));
 
-app.listen(port, () => console.log(`Server listening on port ${port}`));
+app.listen(process.env.PORT, () => console.log(`Server listening on port ${process.env.PORT}`));
