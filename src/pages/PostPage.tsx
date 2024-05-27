@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import csvtojson from 'csvtojson';
+// import csvtojson from 'csvtojson';
 
 import { NavBar } from '../components/NavBar';
-import CoachingClassCard from '../components/CoachingClassCard';
-import UserPostSmall from '../components/Post/UserPostSmall';
+// import CoachingClassCard from '../components/CoachingClassCard';
+// import UserPostSmall from '../components/Post/UserPostSmall';
 import UserPostLarge from '../components/Post/UserPostLarge';
 
 interface PostPageProps {
@@ -38,23 +38,23 @@ export const PostPage: React.FC<PostPageProps> = () => {
         
     }, []);
 
-    async function fetchUser(idCoach: any): Promise<any> {
-        try {
-            let url = process.env.REACT_APP_URL;
-            const response = await fetch(
-                `${url}/user/${idCoach}`, 
-                {}
-            );
+    // async function fetchUser(idCoach: any): Promise<any> {
+    //     try {
+    //         let url = process.env.REACT_APP_URL;
+    //         const response = await fetch(
+    //             `${url}/user/${idCoach}`, 
+    //             {}
+    //         );
     
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            let u = await response.json();
-            return u;
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! status: ${response.status}`);
+    //         }
+    //         let u = await response.json();
+    //         return u;
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
 
     return (
         <div>

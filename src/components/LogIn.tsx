@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CryptoJS from 'crypto-js';
 
@@ -37,7 +37,7 @@ export const LogIn: React.FC = () => {
         .then(
             data => {
             try{
-                if(data.status != 401) {
+                if(data.status !== 401) {
                     console.log(data.access_token);
                     // store the token in local storage
                     localStorage.setItem('token', data.access_token);

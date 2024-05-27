@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { NavBar } from '../NavBar';
 import Comment from './Comment/Comment';
 
 import lamp from '../../images/icons/emoji_objects_24dp_FILL0_wght400_GRAD0_opsz24.svg';
@@ -145,7 +144,7 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
 
             fetchPostData();
             
-        }, []);
+        });
 
 
     return (
@@ -153,7 +152,7 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
             <div className='topBar'>
                 <div className="posterInfo">
                     {user && (
-                        <img className='tinyImage' src={user.profilePictureUrl} alt="profile picture"></img>
+                        <img className='tinyImage' src={user.profilePictureUrl} alt="profile"></img>
                     )}
                     {user && ( 
                         <p>{user.firstName} {user.lastName}</p>

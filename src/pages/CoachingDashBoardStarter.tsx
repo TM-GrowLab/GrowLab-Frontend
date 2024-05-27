@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavBar } from '../components/NavBar';
 import CoachingClassCard from '../components/CoachingClassCard';
-import csvtojson from 'csvtojson';
 import UserPostSmall from '../components/Post/UserPostSmall';
 import { Session } from '../types/session';
 
@@ -82,28 +81,28 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
         
     }, []);
 
-    async function fetchUser(idCoach: any): Promise<any> {
-        try {
-            let url = process.env.REACT_APP_URL;
-            const response = await fetch(
-                `${url}/user/${idCoach}`, 
-                {}
-            );
+    // async function fetchUser(idCoach: any): Promise<any> {
+    //     try {
+    //         let url = process.env.REACT_APP_URL;
+    //         const response = await fetch(
+    //             `${url}/user/${idCoach}`, 
+    //             {}
+    //         );
     
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            let u = await response.json();
-            return u;
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! status: ${response.status}`);
+    //         }
+    //         let u = await response.json();
+    //         return u;
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
 
     return (
         <div>
             <NavBar />
-            <h2 className='pageTitle'>Coaching Dashboard</h2>
+            <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
                     {classListResponse.map((item, index) => (
