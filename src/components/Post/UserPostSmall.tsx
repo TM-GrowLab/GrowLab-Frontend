@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { NavBar } from '../NavBar';
 
 import lamp from '../../images/icons/emoji_objects_24dp_FILL0_wght400_GRAD0_opsz24.svg';
 import more_vert_W from '../../images/icons/more_vert_W_FILL0_wght400_GRAD0_opsz24.svg'; 
@@ -74,7 +73,7 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
             };
 
             fetchUserData();
-        }, []);
+        });
 
     const truncatedDescription = description.length > 280 ? description.slice(0, 280) + '...' : description;
 
@@ -83,7 +82,7 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
             <div className='topBar'>
                 <div className="posterInfo">
                     {user && (
-                        <img className='tinyImage' src={user.profilePictureUrl} alt="profile picture"></img>
+                        <img className='tinyImage' src={user.profilePictureUrl} alt="profile"></img>
                     )}
                     {user && ( 
                         <p>{user.firstName} {user.lastName}</p>

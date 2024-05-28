@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { NavBar } from './NavBar';
+// import { NavBar } from './NavBar';
 import {useNavigate} from 'react-router-dom';
 
 import personIcon from '../images/icons/person_raised_hand_FILL0_wght400_GRAD0_opsz24.svg';
 import calendarIcon from '../images/icons/calendar_month_FILL0_wght400_GRAD0_opsz24.svg';
 import more_vert from '../images/icons/more_vert_FILL0_wght400_GRAD0_opsz24.svg';
 
-interface CoachingTrajectCardProps {
+interface CoachingClassCardProps {
     UUID: string;
     cardTitle: string;
     classHost: string;
@@ -16,7 +16,7 @@ interface CoachingTrajectCardProps {
     nextSession: string;
 }
 
-export const CoachingTrajectCard: React.FC<CoachingTrajectCardProps> = (
+export const CoachingClassCard: React.FC<CoachingClassCardProps> = (
     { 
         UUID,
         cardTitle, 
@@ -54,12 +54,12 @@ export const CoachingTrajectCard: React.FC<CoachingTrajectCardProps> = (
             };
 
             fetchUserData();
-        }, []);
+        });
         
     return (
-        <div className='coaching_traject boxShadow' onClick={handleOnClick}>
+        <div className='coaching_Class boxShadow' onClick={handleOnClick}>
             {user && (
-                <img className='mediumImage photo' src={user.profilePictureUrl} alt="profile picture"></img>
+                <img className='mediumImage photo' src={user.profilePictureUrl} alt="profile"></img>
             )}
             <div className='cardInformation'>
                 <h3 className='cardTitle'>{cardTitle}</h3>
@@ -88,4 +88,4 @@ export const CoachingTrajectCard: React.FC<CoachingTrajectCardProps> = (
     );
 };
 
-export default CoachingTrajectCard;
+export default CoachingClassCard;

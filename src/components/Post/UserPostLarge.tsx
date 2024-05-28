@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { NavBar } from '../NavBar';
+import Comment from './Comment/Comment';
 
 import lamp from '../../images/icons/emoji_objects_24dp_FILL0_wght400_GRAD0_opsz24.svg';
 import more_vert_W from '../../images/icons/more_vert_W_FILL0_wght400_GRAD0_opsz24.svg'; 
@@ -19,8 +19,11 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
         const url = process.env.REACT_APP_URL;
 
         const [user, setUser] = useState<any>();
+        const [commentList, setCommentList] = useState<any[]>([]);
+
         const [like, setLike] = useState<number>(0);
         const [comments, setComments] = useState<number>(0);
+
         const [postResponse, setPostResponse] = useState<any>([]);
 
 
@@ -49,6 +52,33 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
             }
         };
 
+        const handleComment = async () => {
+            try {
+                const token = localStorage.getItem('token');
+                const commentContent = (document.querySelector('.commentBox') as HTMLInputElement)?.value;
+                
+                const response = await fetch(`${url}/post/comment/${UUID}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        content: commentContent
+                    })
+                });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            // const responseData = await response.json();
+            // setComments(comments + responseData);
+
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
         useEffect(() => {
             const fetchUserData = async (poster: string) => {
                 try {
@@ -64,6 +94,25 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
                     
                     const res = await response.json();
                     setUser(res);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
+
+            const fetchCommentsData = async () => {
+                try {
+                    const response = await fetch(
+                        `${url}/post/comments/${UUID}`, 
+                        {}
+                    );
+            
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    setCommentList(await response.json());
+                    
+
                 } catch (error) {
                     console.error(error);
                 }
@@ -86,6 +135,7 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
                     setComments(Math.round(res.comments.toString().length/37));
 
                     fetchUserData(res.poster);
+                    fetchCommentsData();
 
                 } catch (error) {
                     console.error(error);
@@ -94,7 +144,7 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
 
             fetchPostData();
             
-        }, []);
+        });
 
 
     return (
@@ -102,7 +152,7 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
             <div className='topBar'>
                 <div className="posterInfo">
                     {user && (
-                        <img className='tinyImage' src={user.profilePictureUrl} alt="profile picture"></img>
+                        <img className='tinyImage' src={user.profilePictureUrl} alt="profile"></img>
                     )}
                     {user && ( 
                         <p>{user.firstName} {user.lastName}</p>
@@ -128,6 +178,25 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
                 <div className='moreBtn'>
                     <img className='tinyIcon' src={more_vert_W} alt="" />
                     <p className='elza_b'>meer</p>
+                </div>
+            </div>
+            <div className="comments screen ">
+                <p>Comments:</p>
+                <div>
+                    <div className="inputComment flexStart">
+                        <input type="text" className='commentBox' />
+                        <button onClick={handleComment}>plaatsen</button>
+                    </div>
+                    
+                    {commentList && commentList.map((comment: any) => (
+                        <Comment 
+                            key={comment.UUID} 
+                            author={comment.posterName} 
+                            content={comment.content} 
+                            photo={comment.posterImage}
+                        />
+                    ))}
+                    
                 </div>
             </div>
         </div>

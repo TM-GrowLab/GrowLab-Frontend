@@ -1,4 +1,4 @@
-import imgHeader from "../images/Header_img.png";
+// import imgHeader from "../images/Header_img.png";
 import logoGrowLab from "../images/LogoGrowLab.png";
 import { useNavigate } from "react-router-dom";
 
@@ -17,14 +17,13 @@ export const NavBar = () => {
     const handleNavigateClients = () => {
         navigate('/clients');
     }
-
+    
     const navigateToMyProfile = () => {
         navigate('/myProfile')
     }
 
-    const navigateToAanmeldGegevens = () => {
-        console.log('navigate to aanmeldgegevens')
-        navigate('/aanmeldgegevens')
+    const navigateTologin = () => {
+        navigate('/login')
     }
 
     return (
@@ -39,7 +38,7 @@ export const NavBar = () => {
                         <li className="nav_light" onClick={handleNavigateClients}>Clients</li>
                     </ul>
                     <ul id="nav_buttons">
-                        <button id="aanmelden" className="sec_button">Aanmelden</button>
+                        <button id="aanmelden" className="sec_button" onClick={navigateTologin}>Aanmelden</button>
                         <button id="registeren" className="pri_button">Registeren</button>
                     </ul>
                 </nav>

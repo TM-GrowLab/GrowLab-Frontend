@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavBar } from '../components/NavBar';
-import CoachingTrajectCard from '../components/CoachingTrajectCard';
-import csvtojson from 'csvtojson';
+import CoachingClassCard from '../components/CoachingClassCard';
 import UserPostSmall from '../components/Post/UserPostSmall';
+import { Session } from '../types/session';
 
 interface CoachingDashboardStarterProps {
     // Add any props here
@@ -81,38 +81,38 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
         
     }, []);
 
-    async function fetchUser(idCoach: any): Promise<any> {
-        try {
-            let url = process.env.REACT_APP_URL;
-            const response = await fetch(
-                `${url}/user/${idCoach}`, 
-                {}
-            );
+    // async function fetchUser(idCoach: any): Promise<any> {
+    //     try {
+    //         let url = process.env.REACT_APP_URL;
+    //         const response = await fetch(
+    //             `${url}/user/${idCoach}`, 
+    //             {}
+    //         );
     
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            let u = await response.json();
-            return u;
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    //         if (!response.ok) {
+    //             throw new Error(`HTTP error! status: ${response.status}`);
+    //         }
+    //         let u = await response.json();
+    //         return u;
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
 
     return (
         <div>
             <NavBar />
-            <h2>Coaching Dashboard</h2>
+            <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
                     {classListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
-                            <CoachingTrajectCard  
+                            <CoachingClassCard  
                                 UUID={item.UUID}
                                 cardTitle={item.title}
                                 classHost={item.idOwner}
-                                progress={item.currentCheckpoint}
-                                progressMax={item.totalCheckpoints}
+                                progress={item && item.sessions && item.sessions.filter((item: Session) => item.completed).length}
+                                progressMax={item && item.sessions && item.sessions.length}
                                 members={Math.round(item.idMember.toString().length/37)}
                                 nextSession={item.nextSession}
                             />
