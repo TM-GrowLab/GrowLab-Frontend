@@ -42,7 +42,6 @@ export const NavBar = () => {
                 </ul>
                 {userProfile?.sub ? (
                     <>
-                        <span>Welkom {userProfile.username}</span>
                         <ul id="nav_buttons">
                             <button id="myProfile" className="pri_button" onClick={navigateToMyProfile}>Mijn Profiel</button>
                             <LogoutButton />
