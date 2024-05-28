@@ -1,9 +1,12 @@
 // import imgHeader from "../images/Header_img.png";
 import logoGrowLab from "../images/LogoGrowLab.png";
 import { useNavigate } from "react-router-dom";
+import { useFetchUserProfile } from "../hooks/useFetchUserProfile";
 
 
 export const NavBar = () => {
+    const { userProfile, userProfileStatus, userProfileError} = useFetchUserProfile();
+
     const navigate = useNavigate();
 
     const handleNavigateCommunity = () => {
@@ -28,6 +31,11 @@ export const NavBar = () => {
 
     return (
         <>
+            <div>
+                <h1>Hier data test</h1>
+                <p>{userProfile?.sub}</p>
+                <p>{userProfile?.username}</p>
+            </div>
                 <nav>
                     <ul id="nav_items">
                         <li>
