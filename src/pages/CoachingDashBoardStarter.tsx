@@ -81,31 +81,13 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
         
     }, []);
 
-    // async function fetchUser(idCoach: any): Promise<any> {
-    //     try {
-    //         let url = process.env.REACT_APP_URL;
-    //         const response = await fetch(
-    //             `${url}/user/${idCoach}`, 
-    //             {}
-    //         );
-    
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP error! status: ${response.status}`);
-    //         }
-    //         let u = await response.json();
-    //         return u;
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
-
     return (
         <div>
             <NavBar />
             <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
-                    {classListResponse.map((item, index) => (
+                    {classListResponse.length>0 && classListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
                             <CoachingClassCard  
                                 UUID={item.UUID}
@@ -120,7 +102,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                     ))}
                 </div>
                 <div className='myCoachUpdates'>
-                    {postListResponse.map((item, index) => (
+                    {postListResponse.length>0 && postListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
                             <UserPostSmall 
                                 UUID={item.UUID}
