@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import logoGrowLab from '../images/LogoGrowLab.png';
 import { useNavigate } from 'react-router-dom';
 import { useFetchUserProfile } from '../hooks/user/useFetchUserProfile';
@@ -7,11 +7,15 @@ import {LogoutButton} from './LogoutButton';
 export const NavBar = () => {
     const { userProfile, userProfileStatus, userProfileError } = useFetchUserProfile();
 
+    const [userProfileData, setUserProfileData] = useState<any>();
+
     useEffect(() => {
-        if (userProfileError) {
-            console.error(userProfileError);
+        console.log(userProfile);
+        console.log(userProfileStatus);
+        if (userProfileStatus === 'success') {
+            setUserProfileData(userProfile);
         }
-    }, [userProfileError]);
+    });
 
     const navigate = useNavigate();
 
@@ -45,7 +49,7 @@ export const NavBar = () => {
                     <li className="nav_light" onClick={handleNavigateCommunity}>Community</li>
                     <li className="nav_light" onClick={handleNavigateLearning}>Coaching Dashboard</li>
                 </ul>
-                {userProfile?.sub ? (
+                {localStorage.getItem('token') ? (
                     <>
                         <ul id="nav_buttons">
                             <button id="myProfile" className="pri_button" onClick={navigateToMyProfile}>Mijn Profiel</button>
