@@ -26,13 +26,13 @@ export const CoachingClassCard: React.FC<CoachingClassCardProps> = (
         members,
         nextSession
     }) => {
-        const [user, setUser] = useState<any>();
+        const [host, setHost] = useState<any>();
 
         const navigate = useNavigate();
         const handleOnClick = () => navigate(`/class/${UUID}`);
 
         useEffect(() => {
-            const fetchUserData = async () => {
+            const fetchHost = async () => {
                 try {
                     try {
                         let url = process.env.REACT_APP_URL;
@@ -43,28 +43,27 @@ export const CoachingClassCard: React.FC<CoachingClassCardProps> = (
                         if (!response.ok) {
                             throw new Error(`HTTP error! status: ${response.status}`);
                         }
-                        setUser(await response.json());
+                        setHost(await response.json());
                     } catch (error) {
                         console.error(error);
                     }
                 } catch (error) {
                     console.error(error);
                 }
-    
             };
 
-            fetchUserData();
+            fetchHost();
         });
         
     return (
         <div className='coaching_Class boxShadow' onClick={handleOnClick}>
-            {user && (
-                <img className='mediumImage photo' src={user.profilePictureUrl} alt="profile"></img>
+            {host && (
+                <img className='mediumImage photo' src={host.profilePictureUrl} alt="profile"></img>
             )}
             <div className='cardInformation'>
                 <h3 className='cardTitle'>{cardTitle}</h3>
-                {user && (
-                    <p className='classHost'>{`${user.firstName} ${user.lastName}`}</p>
+                {host && (
+                    <p className='classHost'>{`${host.firstName} ${host.lastName}`}</p>
                 )}
                 <div className='progress'>
                     <p> {progress} / {progressMax} </p>

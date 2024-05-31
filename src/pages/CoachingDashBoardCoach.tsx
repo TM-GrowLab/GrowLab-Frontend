@@ -87,7 +87,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
             <h2 className='pageTitle'>Coaching Dashboard for Coaches</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
-                    {classListResponse.map((item, index) => (
+                    {classListResponse.length>0 && classListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
                             <CoachingClassCard  
                                 UUID={item.UUID}
@@ -102,7 +102,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                     ))}
                 </div>
                 <div className='myCoachUpdates'>
-                    {postListResponse.map((item, index) => (
+                    {postListResponse.length>0 && postListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
                             <UserPostSmall 
                                 UUID={item.UUID}
