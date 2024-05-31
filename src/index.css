@@ -143,6 +143,11 @@ body {
   color: var(--Charoal);
 }
 
+.row div div img{
+  max-width: 22em;
+
+}
+
 a {
   text-decoration: none;
   color: var(--Charoal);
@@ -218,6 +223,17 @@ input, textarea{
   box-shadow: var(--Box-Shadow);
   font-size: 30px;
 ;}
+
+.grey_button{
+  min-width: 154px;
+  min-height: 56px;
+  border-radius: 25px;
+  color: var(--Charoal);
+  background-color: var(--LightGrey);
+  border: none;
+  box-shadow: var(--Box-Shadow);
+  padding-top: 5px;
+}
 
 button:hover {
   cursor: pointer;
@@ -315,7 +331,42 @@ button:hover {
 }
 
 /* titles */
+.row {
+  display: flex;
+  flex-direction: row;
+}
 
+.profile_box {
+  padding: 1em 2em;
+}
+
+.bubble li {
+  margin-right: 15px;
+  padding: 6px 10px;
+  border: 1px solid var(--Meadow-Haze);
+  color: var(--Meadow-Haze);
+  box-shadow: var(--Box-Shadow);
+  border-radius: 25px;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.marginRight {
+  margin-right: 1em;
+}
+
+.marginTopZero {
+  margin-top: 0;
+}
+
+.mini_logo {
+  border-radius: 50px;
+  object-fit: cover;
+  height: 80px;
+  width: 80px;
+}
 .pageTitle{
   margin: 0 0 2vh 8vw;
 }
@@ -755,3 +806,74 @@ div.title_box {
   width: 70%;
 }
 
+/* Profile */
+.profile_container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 25em !important;
+  background-color: var(--White);
+  border-radius: 25px;
+  box-shadow: var(--Box-Shadow);
+  min-height: 10em;
+}
+
+.profile_cover {
+  width: 100%;
+  border-radius: 25px 25px 0 0;
+  height: 16em;
+  object-fit: cover;
+}
+
+.profielfoto {
+  border-radius: 50%;
+  width: 12em;
+  height: 12em;
+  position: relative;
+  bottom: 3em;
+  left: 2em;
+  object-fit: cover;
+}
+
+.profile_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1em 2em;
+  width: 90%;
+  position: relative;
+  bottom: 4em;
+}
+
+div.info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 4em;
+}
+
+.profile_header div h2, .profile_header div h3 {
+  margin: 0;
+}
+
+/* Profile */
+.profile_part_one {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em 2em;
+  width: 90%;
+  margin-top: -8em;
+}
+ .over_mij {
+  width: 50%;
+ }
+
+ .labels {
+  width: 50%;
+ }
+
+ .bubble {
+  padding-left: 0;
+ }

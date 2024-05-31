@@ -4,6 +4,7 @@ import { HomePage } from './pages/HomePage';
 import { LogIn } from './components/LogIn';
 import { Feed } from './pages/Feed';
 import { AanmeldGegevens } from './components/Registreren/AanmeldGegevens';
+import { MyProfilePage } from './pages/MyProfilePage';
 import { CoachingDashboardStarter } from './pages/CoachingDashBoardStarter';
 import PostPage from './pages/PostPage';
 import CoachingClassPage from './pages/CoachingClassPage';
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Route path="/aanmeldgegevens" element={<AanmeldGegevens />} />
         <Route path="/post/:postUUID" element={<PostPage />} />
         <Route path="/class/:classUUID" element={<CoachingClassPage />} />
+        <Route path="/myProfile" element={<MyProfilePage />} />
       </Routes>
     </BrowserRouter>
   );
