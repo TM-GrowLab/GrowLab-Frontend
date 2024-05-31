@@ -9,6 +9,7 @@ import { CoachingDashboardStarter } from './pages/CoachingDashBoardStarter';
 import PostPage from './pages/PostPage';
 import CoachingClassPage from './pages/CoachingClassPage';
 import CreatePost from './components/Post/CreatePost';
+import { UserPage } from './pages/UserPage';
 
 
 const App: React.FC = () => {
@@ -24,6 +25,7 @@ const App: React.FC = () => {
         <Route path="/post/:postUUID" element={<PostPage />} />
         <Route path="/class/:classUUID" element={<CoachingClassPage />} />
         <Route path="/myProfile" element={<MyProfilePage />} />
+        <Route path="/user/:userUUID" element={<UserPage />} />
       </Routes>
     </BrowserRouter>
   );

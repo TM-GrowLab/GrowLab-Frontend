@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import lamp from '../../images/icons/emoji_objects_24dp_FILL0_wght400_GRAD0_opsz24.svg';
 import more_vert_W from '../../images/icons/more_vert_W_FILL0_wght400_GRAD0_opsz24.svg'; 
 import comment from '../../images/icons/comment_24dp_FILL0_wght400_GRAD0_opsz24.svg';
+import { useFetchUser } from '../../hooks/user/useFetchUser';
 
 
 interface UserPostSmallProps {
@@ -26,8 +27,10 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
         likes,
         comments
     }) => {
-        const [user, setUser] = useState<any>();
+        const [userItem, setUserItem] = useState<any>();
         const [like, setLike] = useState<number>(likes);
+
+        const { user, userStatus, userError} = useFetchUser(poster);
 
         const navigate = useNavigate();
         const handleOnClick = () => navigate(`/post/${UUID}`);
@@ -55,25 +58,10 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
         };
 
         useEffect(() => {
-                const fetchUserData = async () => {
-                try {
-                    let url = process.env.REACT_APP_URL;
-                    const response = await fetch(
-                        `${url}/user/${poster}`, 
-                        {}
-                    );
-                
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-                    setUser(await response.json());
-                } catch (error) {
-                    console.error(error);
-                }
-            };
-
-            fetchUserData();
-        });
+            if (userStatus === 'success') {
+                setUserItem(user);
+            }
+        }, [userStatus, user]);
 
     const truncatedDescription = description.length > 280 ? description.slice(0, 280) + '...' : description;
 
@@ -81,11 +69,11 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
         <div className='postItem boxShadow' onClick={handleOnClick}>
             <div className='topBar'>
                 <div className="posterInfo">
-                    {user && (
-                        <img className='tinyImage' src={user.profilePictureUrl} alt="profile"></img>
+                    {userItem && (
+                        <img className='tinyImage' src={userItem.profilePictureUrl} alt="profile"></img>
                     )}
-                    {user && ( 
-                        <p>{user.firstName} {user.lastName}</p>
+                    {userItem && ( 
+                        <p>{userItem.firstName} {userItem.lastName}</p>
                     )}
                 </div>
                 <div className="timeInformation">

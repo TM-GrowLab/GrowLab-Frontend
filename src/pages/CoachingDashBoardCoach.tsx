@@ -79,7 +79,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
 
         fetchUserData();
         
-    });
+    }, [myUUID]);
     
     return (
         <div>

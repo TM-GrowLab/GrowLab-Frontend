@@ -1,6 +1,6 @@
 // src/UserList.tsx
 import React from 'react';
-import { useFetchUsers } from '../../hooks/useFetchUsers';
+import { useFetchUsers } from '../../hooks/user/useFetchUsers';
 import ExperienceBox from  '../../components/Profile/ExperienceBox';
 import StartupBox from '../../components/Profile/StartupBox';
 

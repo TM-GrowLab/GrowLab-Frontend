@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { User } from '../types/User';
-import { Error } from '../types/Error';
+import { User } from '../../types/User';
+import { Error } from '../../types/Error';
 
 const fetchUsers = async (): Promise<User[]> => {
-    const response = await axios.get<User[]>('http://localhost:3000/user');
+    let url = process.env.REACT_APP_URL;
+    const response = await axios.get<User[]>(`${url}/user`);
     return response.data;
 };
 

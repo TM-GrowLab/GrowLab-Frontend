@@ -873,6 +873,12 @@ div.info{
  .labels {
   width: 50%;
  }
+ .labels div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.1em;
+ }
 
  .bubble {
   padding-left: 0;

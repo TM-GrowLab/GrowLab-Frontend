@@ -15,7 +15,7 @@ const CreatePost: React.FC = () => {
         setContent(event.target.value);
     };
 
- const handlePost = async () => {
+    const handlePost = async () => {
         try {
             const token = localStorage.getItem('token');
             const postTitle = (document.querySelector('.titleBox') as HTMLInputElement)?.value;

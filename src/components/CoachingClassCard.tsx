@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import personIcon from '../images/icons/person_raised_hand_FILL0_wght400_GRAD0_opsz24.svg';
 import calendarIcon from '../images/icons/calendar_month_FILL0_wght400_GRAD0_opsz24.svg';
 import more_vert from '../images/icons/more_vert_FILL0_wght400_GRAD0_opsz24.svg';
+import { useFetchUser } from '../hooks/user/useFetchUser';
 
 interface CoachingClassCardProps {
     UUID: string;
@@ -27,33 +28,16 @@ export const CoachingClassCard: React.FC<CoachingClassCardProps> = (
         nextSession
     }) => {
         const [host, setHost] = useState<any>();
+        const { user, userStatus, userError} = useFetchUser(classHost);
 
         const navigate = useNavigate();
         const handleOnClick = () => navigate(`/class/${UUID}`);
 
         useEffect(() => {
-            const fetchHost = async () => {
-                try {
-                    try {
-                        let url = process.env.REACT_APP_URL;
-                        const response = await fetch(
-                            `${url}/user/${classHost}`, 
-                            {}
-                        );
-                        if (!response.ok) {
-                            throw new Error(`HTTP error! status: ${response.status}`);
-                        }
-                        setHost(await response.json());
-                    } catch (error) {
-                        console.error(error);
-                    }
-                } catch (error) {
-                    console.error(error);
-                }
-            };
-
-            fetchHost();
-        });
+            if (user) {
+                setHost(user);
+            }
+        }, [user]);
         
     return (
         <div className='coaching_Class boxShadow' onClick={handleOnClick}>

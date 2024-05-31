@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import logoGrowLab from '../images/LogoGrowLab.png';
 import { useNavigate } from 'react-router-dom';
-import { useFetchUserProfile } from '../hooks/useFetchUserProfile';
+import { useFetchUserProfile } from '../hooks/user/useFetchUserProfile';
 import {LogoutButton} from './LogoutButton';
 
 export const NavBar = () => {
     const { userProfile, userProfileStatus, userProfileError } = useFetchUserProfile();
+
+    useEffect(() => {
+        if (userProfileError) {
+            console.error(userProfileError);
+        }
+    }, [userProfileError]);
 
     const navigate = useNavigate();
 
@@ -14,7 +20,7 @@ export const NavBar = () => {
     }
 
     const handleNavigateLearning = () => {
-        navigate('/learning');
+        navigate('/dashboard');
     }
 
     const handleNavigateClients = () => {
@@ -22,7 +28,7 @@ export const NavBar = () => {
     }
 
     const navigateToMyProfile = () => {
-        navigate('/myProfile');
+        navigate('/user/' + userProfile?.sub);
     }
 
     const navigateTologin = () => {
@@ -37,8 +43,7 @@ export const NavBar = () => {
                         <img className="logo" src={logoGrowLab} alt="logo" />
                     </li>
                     <li className="nav_light" onClick={handleNavigateCommunity}>Community</li>
-                    <li className="nav_light" onClick={handleNavigateLearning}>Learning</li>
-                    <li className="nav_light" onClick={handleNavigateClients}>Clients</li>
+                    <li className="nav_light" onClick={handleNavigateLearning}>Coaching Dashboard</li>
                 </ul>
                 {userProfile?.sub ? (
                     <>
