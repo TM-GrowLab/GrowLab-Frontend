@@ -203,25 +203,25 @@ input{
 }
 
 .pri_button_header{
-  min-width: 245px;
-  min-height: 90px;
+  min-width: 200px;
+  min-height: 60px;
   border-radius: 80px;
   color: var(--White);
   background: linear-gradient(45deg, #8DECBC, #73C7C2) !important;
   border: none;
   box-shadow: var(--Box-Shadow);
-  font-size: 30px;
+  font-size: 22px;
 }
 
 .sec_button_header{
-  min-width: 245px;
-  min-height: 90px;
+  min-width: 200px;
+  min-height: 60px;
   border-radius: 80px;
   color: var(--Charoal);
   background-color: var(--White);
   border: none;
   box-shadow: var(--Box-Shadow);
-  font-size: 30px;
+  font-size: 22px;
 ;}
 
 .grey_button{
@@ -372,8 +372,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   min-height: 8em;
-  margin: 0 2em;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
 }
 
 #nav_items {
@@ -389,7 +388,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 22%;
+  width: 28%;
 
 }
 
@@ -408,6 +407,7 @@ header {
   background-color: var(--White);
   padding: 3em;
   padding-bottom: 5em;
+  margin-right: 2em;
   min-height: 20em;
   border-radius: 0 25px 25px 25px ;
 }
@@ -445,6 +445,10 @@ header img {
   color: var(--White);
   margin: 0;
   z-index: 10;
+}
+
+.succesverhaal h4 {
+  font-size: 15px !important;
 }
 
 .scroll_container {
