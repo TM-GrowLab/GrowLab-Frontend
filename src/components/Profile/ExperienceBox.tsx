@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFetchExperience } from '../../hooks/useFetchExperienceFromUser';
+import { useFetchExperience } from '../../hooks/user/useFetchExperienceFromUser';
 import { Experience } from '../../types/Experience';
 
 interface ExperienceBoxProps {

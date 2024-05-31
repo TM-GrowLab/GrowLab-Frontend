@@ -13,6 +13,9 @@ interface CoachingClassPageProps {
 export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
 
     const [classResponse, setClassResponse] = useState<any>();
+    
+    const [myUser, setMyUser] = useState<any>();
+    const [isOwner, setIsOwner] = useState<boolean>(false);
 
     const { classUUID } = useParams<{ classUUID: string }>();
 
@@ -20,42 +23,29 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
     let url = process.env.REACT_APP_URL;
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const response = await fetch(`${url}/auth/profile`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-
-                const data = await response.json();
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchUserData();
         fetchClass(classUUID);
         
     }, []);
 
-    // async function fetchUser(idCoach: any): Promise<any> {
-    //     try {
-    //         let url = process.env.REACT_APP_URL;
-    //         const response = await fetch(
-    //             `${url}/user/${idCoach}`, 
-    //             {}
-    //         );
-    
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP error! status: ${response.status}`);
-    //         }
-    //         let u = await response.json();
-    //         return u;
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
+    const fetchme = async () => {
+        try {
+            
+            let url = process.env.REACT_APP_URL;
+            const token = localStorage.getItem('token');
+            const response = await fetch(`${url}/auth/profile`, {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
+            const data = await response.json();
+            setMyUser(data);
+            if (data.sub === classResponse.idOwner) {
+                setIsOwner(true);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     async function fetchClass(idClass: any): Promise<any> {
         try {
@@ -73,6 +63,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
             }
             let c = await response.json();
             setClassResponse(c);
+            fetchme();
         } catch (error) {
             console.error(error);
         }
@@ -90,6 +81,9 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
             </div>
             <div className='dashboard'>
                 <div className="myClassList">
+                    {isOwner && 
+                        <button className="button">Add Session</button>
+                    }
                     {classResponse && 
                     classResponse.sessions && 
                     classResponse.sessions != null && 
@@ -106,7 +100,6 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                         </div>
                         
                     ))}
-                    
                 </div>
                 <div className="myCoachUpdates">
                         {classResponse && 
@@ -115,7 +108,6 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                         classResponse.posts.length > 0 && 
                         classResponse.posts.map((item: any) => (
                         <div className="" key={item.UUID}>
-
                             <UserPostSmall  
                                 key={item.UUID}
                                 UUID={item.UUID}

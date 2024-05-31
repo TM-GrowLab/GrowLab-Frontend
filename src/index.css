@@ -157,9 +157,7 @@ a:visited {
   color: var(--Charoal);
 }
 
-input{
-  width: 450px;
-  height: 20px;
+input, textarea{
   color: var(--Charoal);
   background: rgb(227, 226, 226);
   border-radius: 10px;
@@ -169,6 +167,8 @@ input{
   font-style: normal;
   font-size: 16px;
   padding: 8px 10px;
+  width: auto;
+  resize: none;
 }
 
 .sec_button{
@@ -253,7 +253,11 @@ button:hover {
 .flexStart {
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+}
+
+.column {
+  flex-direction: column;
 }
 
 /* Box sizes */
@@ -270,6 +274,10 @@ button:hover {
 
 .wideMainBox {
   width: 40%;
+}
+
+.narrowMainBox {
+  width: 30%;
 }
 
 /* icons and images */
@@ -730,8 +738,19 @@ header img {
   background-color: var(--LightGrey);
   width: 100%;
   height: 3em;
-  box-sizing: border-box;
-  
+  box-sizing: border-box; 
+}
+
+/* Create post */
+
+.createPost{
+  background-color: var(--White);
+  border-radius: 30px 30px 0px 30px;
+  gap: 1em;
+}
+
+.createPost textarea{
+  height: 10em;
 }
 
 /* Footer */
@@ -853,6 +872,12 @@ div.info{
 
  .labels {
   width: 50%;
+ }
+ .labels div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.1em;
  }
 
  .bubble {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useFetchStartup } from '../../hooks/useFetchStartupFromUser';
+import { useFetchStartup } from '../../hooks/user/useFetchStartupFromUser';
 import { Startup } from '../../types/Startup';
 
 interface StartupBoxProps {

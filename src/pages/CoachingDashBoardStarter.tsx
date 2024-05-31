@@ -3,101 +3,31 @@ import { NavBar } from '../components/NavBar';
 import CoachingClassCard from '../components/CoachingClassCard';
 import UserPostSmall from '../components/Post/UserPostSmall';
 import { Session } from '../types/session';
+import { useFetchClassData } from '../hooks/user/useFetchClassesForUser';
+import { useFetchUserProfile } from '../hooks/user/useFetchUserProfile';
+import { useFetchPostsForCoachesByMember } from '../hooks/post/useFetchPostsForCoachesByMember';
 
 interface CoachingDashboardStarterProps {
     // Add any props here
 }
 
 export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> = () => {
-    let myUUID = '';
-    const [classListResponse, setClassListResponse] = useState<any[]>([]);
-    const [postListResponse, setPostListResponse] = useState<any[]>([]);
+    
+    const {userProfile, userProfileStatus, userProfileError} = useFetchUserProfile();
+    const {classData, classStatus, classError} = useFetchClassData(userProfile?.sub || ''); 
+    const {posts, postsStatus, postsError} = useFetchPostsForCoachesByMember(userProfile?.sub || ''); 
+
+    const [classList, setClassList] = useState<any[]>([]);
+    const [postList, setPostList] = useState<any[]>([]);
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                let url = process.env.REACT_APP_URL;
-                const token = localStorage.getItem('token');
-                const response = await fetch(`${url}/auth/profile`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-
-                const data = await response.json();
-                myUUID = data.sub;
-            } catch (error) {
-                console.error(error);
-            }
-
-            try{
-                fetchClassData();
-                fetchPostsData();
-            }
-            catch (error) {
-                console.error(error);
-            }
-        };
-
-        const fetchClassData = async () => {
-            try {
-                let url = process.env.REACT_APP_URL;
-                const response = await fetch(
-                    `${url}/coach-class/forMember/${myUUID}`, 
-                    {}
-                );
-        
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-        
-                const classes = await response.json();
-                setClassListResponse(classes);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        const fetchPostsData = async () => {
-            try {
-                let url = process.env.REACT_APP_URL;
-                const response = await fetch(
-                    `${url}/post/forCoachesByMember/${myUUID}`, 
-                    {}
-                );
-        
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const posts = await response.json();
-                setPostListResponse(posts);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchUserData();
-        
-    }, []);
-
-    // async function fetchUser(idCoach: any): Promise<any> {
-    //     try {
-    //         let url = process.env.REACT_APP_URL;
-    //         const response = await fetch(
-    //             `${url}/user/${idCoach}`, 
-    //             {}
-    //         );
-    
-    //         if (!response.ok) {
-    //             throw new Error(`HTTP error! status: ${response.status}`);
-    //         }
-    //         let u = await response.json();
-    //         return u;
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
-    // }
+        if (classData) {
+            setClassList(classData);
+        }
+        if (posts) {
+            setPostList(posts);
+        }
+    }, [classData, posts]);
 
     return (
         <div>
@@ -105,7 +35,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
             <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
-                    {classListResponse.map((item, index) => (
+                    {classList.length>0 && classList.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
                             <CoachingClassCard  
                                 UUID={item.UUID}
@@ -120,7 +50,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                     ))}
                 </div>
                 <div className='myCoachUpdates'>
-                    {postListResponse.map((item, index) => (
+                    {postList.length>0 && postList.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
                             <UserPostSmall 
                                 UUID={item.UUID}

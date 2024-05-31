@@ -1,12 +1,13 @@
 // src/hooks/useFetchExperience.ts
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
-import { Error } from '../types/Error';
-import { Startup } from '../types/Startup';
+import { Error } from '../../types/Error';
+import { Startup } from '../../types/Startup';
 
 const fetchStartup = async (ownerId: string): Promise<Startup[]> => {
+    let url = process.env.REACT_APP_URL;
     // find all startups from user with OwnerId van startup = UUID van user
-    const response = await axios.get<Startup[]>(`http://localhost:3000/startup/findall/${ownerId}`);
+    const response = await axios.get<Startup[]>(`${url}/startup/findall/${ownerId}`);
     return response.data;
 };
 
