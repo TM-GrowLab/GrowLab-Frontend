@@ -11,6 +11,7 @@ export const LogoutButton: React.FC = () => {
     const logout = () => {
         localStorage.removeItem('token');
         handleNavigateHomePage(); 
+        window.location.reload();
     };
     
     return (
