@@ -29,6 +29,10 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
         }
     }, [classData, posts]);
 
+    if (classStatus === 'pending' || postsStatus === 'pending') {
+        return <div>Loading...</div>;
+    }
+
     return (
         <div>
             <NavBar />
