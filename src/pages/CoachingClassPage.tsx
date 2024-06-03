@@ -5,6 +5,9 @@ import { NavBar } from '../components/NavBar';
 import UserPostSmall from '../components/Post/UserPostSmall';
 import { SessionCard } from '../components/SessionCard';
 import { Session } from '../types/session';
+import { useFetchClass } from '../hooks/useFetchClass';
+import { useFetchUserProfile } from '../hooks/user/useFetchUserProfile';
+import { Footer } from '../components/Footer';
 
 interface CoachingClassPageProps {
     // Add any props here
@@ -19,68 +22,39 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
 
     const { classUUID } = useParams<{ classUUID: string }>();
 
+    const { coachClass, coachClassStatus, error } = useFetchClass(classUUID || '');
+    const { userProfile, userProfileStatus, userProfileError } = useFetchUserProfile();
+
     const token = localStorage.getItem('token');
     let url = process.env.REACT_APP_URL;
 
     useEffect(() => {
-        fetchClass(classUUID);
-        
-    }, []);
-
-    const fetchme = async () => {
-        try {
-            
-            let url = process.env.REACT_APP_URL;
-            const token = localStorage.getItem('token');
-            const response = await fetch(`${url}/auth/profile`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            });
-            const data = await response.json();
-            setMyUser(data);
-            if (data.sub === classResponse.idOwner) {
-                setIsOwner(true);
-            }
-        } catch (error) {
-            console.error(error);
+        if (coachClass) {
+            setClassResponse(coachClass);
         }
-    };
 
-    async function fetchClass(idClass: any): Promise<any> {
-        try {
-            const response = await fetch(
-                `${url}/coach-class/${idClass}`, 
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
-            );
-    
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            let c = await response.json();
-            setClassResponse(c);
-            fetchme();
-        } catch (error) {
-            console.error(error);
-        }
-    }
+        if (userProfile) {
+            setMyUser(userProfile);
+        }        
+    }, [coachClass, userProfile]);
 
     const completedCheckpoints = classResponse && classResponse.sessions && classResponse.sessions.filter((item: Session) => item.completed).length;
 
     return (
-        <div>
+        <>
             <NavBar />
-            <h2 className="pageTitle">{classResponse && classResponse.title}</h2>
-            <div className="progressClass pageTitle">
-                <progress value={completedCheckpoints} max={classResponse && classResponse.sessions && classResponse.sessions.length}></progress>
-                <p>{completedCheckpoints} / {classResponse && classResponse.sessions && classResponse.sessions.length} checkpoints completed</p>
-            </div>
+            <header className='flexStart column'>
+                <h2 className="pageTitle">{classResponse && classResponse.title}</h2>
+                <div className="progressClass pageTitle">
+                    <progress value={completedCheckpoints} max={classResponse && classResponse.sessions && classResponse.sessions.length}></progress>
+                    <p>{completedCheckpoints} / {classResponse && classResponse.sessions && classResponse.sessions.length} checkpoints completed</p>
+                </div>
+            </header>
+            
             <div className='dashboard'>
-                <div className="myClassList">
+                <div className="column">
+                    <h3>Sessies</h3>
+                    <div className="myClassList">
                     {isOwner && 
                         <button className="button">Add Session</button>
                     }
@@ -101,7 +75,11 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                         
                     ))}
                 </div>
-                <div className="myCoachUpdates">
+                </div>
+                
+                <div className="column">
+                    <h3>Coach updates</h3>
+                    <div className="myCoachUpdates">
                         {classResponse && 
                         classResponse.posts && 
                         classResponse.posts != null && 
@@ -121,8 +99,10 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                         </div>
                         ))}
                     </div>
+                </div>
             </div>
-        </div>
+            <Footer />
+        </>
     );
 };
 

@@ -6,6 +6,7 @@ import { Session } from '../types/session';
 import { useFetchClassData } from '../hooks/user/useFetchClassesForUser';
 import { useFetchUserProfile } from '../hooks/user/useFetchUserProfile';
 import { useFetchPostsForCoachesByMember } from '../hooks/post/useFetchPostsForCoachesByMember';
+import { Footer } from '../components/Footer';
 
 interface CoachingDashboardStarterProps {
     // Add any props here
@@ -34,25 +35,32 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
     }
 
     return (
-        <div>
+        <>
             <NavBar />
-            <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
+            <header className='center'>
+                <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
+            </header>
             <div className='dashboard'>
-                <div className='myClassList'>
-                    {classList.length>0 && classList.map((item, index) => (
-                        <div className="listItem" key={item.UUID}>
-                            <CoachingClassCard  
-                                UUID={item.UUID}
-                                cardTitle={item.title}
-                                classHost={item.idOwner}
-                                progress={item && item.sessions && item.sessions.filter((item: Session) => item.completed).length}
-                                progressMax={item && item.sessions && item.sessions.length}
-                                members={Math.round(item.idMember.toString().length/37)}
-                                nextSession={item.nextSession}
-                            />
-                        </div>
-                    ))}
+                <div className="column">
+                    <h3>Mijn trajecten</h3>
+                    <div className='myClassList'>
+                        {classList.length>0 && classList.map((item, index) => (
+                            <div className="listItem" key={item.UUID}>
+                                <CoachingClassCard  
+                                    UUID={item.UUID}
+                                    cardTitle={item.title}
+                                    classHost={item.idOwner}
+                                    progress={item && item.sessions && item.sessions.filter((item: Session) => item.completed).length}
+                                    progressMax={item && item.sessions && item.sessions.length}
+                                    members={Math.round(item.idMember.toString().length/37)}
+                                    nextSession={item.nextSession}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
+                <div className="column">
+                <h3>Updates van je coaches</h3>
                 <div className='myCoachUpdates'>
                     {postList.length>0 && postList.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
@@ -68,8 +76,10 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                         </div>
                     ))}
                 </div>
+                </div>
             </div>
-        </div>
+            <Footer />
+        </>
     );
 };
 
