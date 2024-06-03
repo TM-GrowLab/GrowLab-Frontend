@@ -57,6 +57,11 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
             }
         };
 
+        const handleClickProfile = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            event.stopPropagation();
+            navigate(`/user/${poster}`);
+        };
+
         useEffect(() => {
             if (userStatus === 'success') {
                 setUserItem(user);
@@ -68,7 +73,7 @@ export const UserPostSmall: React.FC<UserPostSmallProps> = (
     return (
         <div className='postItem boxShadow' onClick={handleOnClick}>
             <div className='topBar'>
-                <div className="posterInfo">
+                <div className="posterInfo" onClick={handleClickProfile}>
                     {userItem && (
                         <img className='tinyImage' src={userItem.profilePictureUrl} alt="profile"></img>
                     )}

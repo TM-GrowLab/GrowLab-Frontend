@@ -171,6 +171,11 @@ input, textarea{
   resize: none;
 }
 
+header{
+  width: 80%;
+  margin: auto;
+}
+
 .sec_button{
   min-width: 154px;
   min-height: 56px;
@@ -361,14 +366,14 @@ button:hover {
   margin-top: 0;
 }
 
-.mini_logo {
+/* .mini_logo {
   border-radius: 50px;
   object-fit: cover;
   height: 80px;
   width: 80px;
-}
+} */
 .pageTitle{
-  margin: 0 0 2vh 8vw;
+  /* margin: 0 0 2vh 10vw; */
 }
 
 
@@ -542,7 +547,6 @@ header img {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: fit-content;
   background-color: var(--White);
   padding: 1em 1em 1em 1em;
   border-radius: 30px 30px 0px 30px;
@@ -551,6 +555,7 @@ header img {
 .coaching_Class h3, .coaching_Class p {
   margin: 0 0 0 0;
   padding: 0.5vh 0 0.5vh 0;
+  text-wrap: auto;
 }
 
 .coaching_Class img.photo {
@@ -565,6 +570,7 @@ header img {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  max-width: 52%;
 }
 
 .membersInfo, .sessionInfo, .progress{
@@ -612,19 +618,19 @@ header img {
   justify-content: center;
   align-items: flex-start;
   width: 100%;
+  gap: 1em;
 }
 
 .myClassList {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 20vw;
   height: auto;
-  margin: 0 1em 0 0;
 }
 
 .myClassList .listItem {
   margin: 0 0 1em 0;
-  width: fit-content;
+  
 }
 
 .myCoachUpdates {
@@ -633,6 +639,10 @@ header img {
   gap: 1em;
   width: 60vw;
   height: auto;
+}
+
+.myCoachUpdates .listItem{
+  max-height: fit-content;
 }
 
 /* post item */
@@ -758,6 +768,7 @@ header img {
 .footer_container{
   background-color: white;
   padding: 1em 8em;
+  margin: 5em 0 0 0;
 }
 
 .mini_logo {
