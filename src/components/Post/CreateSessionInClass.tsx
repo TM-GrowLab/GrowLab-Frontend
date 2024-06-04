@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 
+interface CreateSessionInClassProps {
+    cUUID: string;
+}
 
-const CreatePost: React.FC = (
-    
+const CreateSessionInClass: React.FC<CreateSessionInClassProps> = (
+    cUUID
 ) => {
     const url = process.env.REACT_APP_URL;
 
@@ -23,23 +26,23 @@ const CreatePost: React.FC = (
         setContent(event.target.value);
     };
 
-    const handlePost = async () => {
+    const handleSession = async () => {
         try {
             const token = localStorage.getItem('token');
-            const postTitle = (document.querySelector('.titleBox') as HTMLInputElement)?.value;
-            const postContent = (document.querySelector('.contentBox') as HTMLInputElement)?.value;
+            const sessionTitle = (document.querySelector('.titleBox') as HTMLInputElement)?.value;
+            const sessionContent = (document.querySelector('.contentBox') as HTMLInputElement)?.value;
+            const sessionDateTime = (document.querySelector('.dateTime') as HTMLInputElement)?.value;
             
-            const response = await fetch(`${url}/post`, {
+            const response = await fetch(`${url}/coach-class/${cUUID.cUUID}/session`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     Authorization: `Bearer ${token}`
                 },
                 body: JSON.stringify({
-                    visibility: 'public',
-                    title: postTitle,
-                    content: postContent,
-                    type: 'text'
+                    title: sessionTitle,
+                    description: sessionContent,
+                    date: new Date(sessionDateTime).toISOString()
                 })
             });
 
@@ -54,7 +57,7 @@ const CreatePost: React.FC = (
 
     return (
         <>
-        <button className='createBtn' onClick={toggleModal}>Create Post</button>
+        <button className='createBtn' onClick={toggleModal}>Create Session</button>
 
         {modal && 
             <div className="modal">
@@ -67,12 +70,17 @@ const CreatePost: React.FC = (
                             </div>
                             
                             <div className='column screen'>
-                                <label htmlFor="content">Content:</label>
+                                <label htmlFor="content">Description:</label>
                                 <textarea className='contentBox' id="content" value={content} onChange={handleContentChange} />
                             </div>
 
+                            <div className='column screen'>
+                                <label htmlFor="dateTime">Date time:</label>
+                                <input aria-label="Date and time" type="datetime-local" className='dateTime'/>
+                            </div>
+
                             <div className="buttons flexCenter">
-                                <button className='submit' onClick={handlePost} >Post</button>
+                                <button className='submit' onClick={handleSession} >Session</button>
                                 <button className='cancelBtn' onClick={toggleModal}>Annuleren</button>
                             </div>
                         </form>
@@ -84,4 +92,4 @@ const CreatePost: React.FC = (
     );
 };
 
-export default CreatePost;
+export default CreateSessionInClass;

@@ -621,7 +621,7 @@ header img {
   background-color: var(--White);
   border-radius: 30px 30px 0px 30px;
   padding: 1em;
-  width: 15vw;
+  max-width: 100%;
 }
 
 .sessionCard *{
@@ -654,10 +654,7 @@ header img {
   flex-direction: column;
   width: 20vw;
   height: auto;
-}
-
-.myClassList .listItem {
-  margin: 0 0 1em 0;
+  gap: 1em;
 }
 
 .myCoachUpdates {
@@ -804,7 +801,7 @@ header img {
   padding: 0.5em;
 }
 
-.createPost div .titleBox, .createPost div .contentBox{
+.createPost div .titleBox, .createPost div .contentBox, .createPost div .dateTime{
   width: 94%;
 }
 .createPost div .contentBox{

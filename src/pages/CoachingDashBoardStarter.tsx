@@ -7,17 +7,20 @@ import { useFetchClassData } from '../hooks/user/useFetchClassesForUser';
 import { useFetchUserProfile } from '../hooks/user/useFetchUserProfile';
 import { useFetchPostsForCoachesByMember } from '../hooks/post/useFetchPostsForCoachesByMember';
 import { Footer } from '../components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 interface CoachingDashboardStarterProps {
     // Add any props here
 }
 
 export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> = () => {
+    const Navigate = useNavigate();
     
     const {userProfile, userProfileStatus, userProfileError} = useFetchUserProfile();
     const {classData, classStatus, classError} = useFetchClassData(userProfile?.sub || ''); 
     const {posts, postsStatus, postsError} = useFetchPostsForCoachesByMember(userProfile?.sub || ''); 
 
+    const [userProfileData, setUserProfileData] = useState<any>({});
     const [classList, setClassList] = useState<any[]>([]);
     const [postList, setPostList] = useState<any[]>([]);
 
@@ -28,11 +31,21 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
         if (posts) {
             setPostList(posts);
         }
-    }, [classData, posts]);
+        if (userProfile && Object.keys(userProfileData).length === 0) { // Add condition to check if userProfileData is empty
+            setUserProfileData(userProfile);
+            if (userProfile && userProfile.role === 'coach') {
+                console.log('Redirecting to coach dashboard');
+                Navigate('/coachDashboard');
+            }
+        }
+    }, [classData, posts, userProfile]);
 
     if (classStatus === 'pending' || postsStatus === 'pending') {
         return <div>Loading...</div>;
     }
+
+    
+    
 
     return (
         <>

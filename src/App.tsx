@@ -6,6 +6,7 @@ import { Feed } from './pages/Feed';
 import { AanmeldGegevens } from './components/Registreren/AanmeldGegevens';
 import { MyProfilePage } from './pages/MyProfilePage';
 import { CoachingDashboardStarter } from './pages/CoachingDashBoardStarter';
+import { CoachingDashboardCoach } from './pages/CoachingDashBoardCoach';
 import PostPage from './pages/PostPage';
 import CoachingClassPage from './pages/CoachingClassPage';
 import CreatePost from './components/Post/CreatePost';
@@ -16,16 +17,19 @@ const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="*" element={<div>Not Found</div>} />
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/feed" element={<Feed />} />
         <Route path="/post/new" element={<CreatePost />} />
         <Route path="/dashboard" element={<CoachingDashboardStarter />} />
+        <Route path="/coachDashboard" element={<CoachingDashboardCoach />} />
         <Route path="/aanmeldgegevens" element={<AanmeldGegevens />} />
         <Route path="/post/:postUUID" element={<PostPage />} />
         <Route path="/class/:classUUID" element={<CoachingClassPage />} />
         <Route path="/myProfile" element={<MyProfilePage />} />
         <Route path="/user/:userUUID" element={<UserPage />} />
+        
       </Routes>
     </BrowserRouter>
   );

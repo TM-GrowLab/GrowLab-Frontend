@@ -11,6 +11,7 @@ import { Footer } from '../components/Footer';
 
 import member from '../images/icons/person_raised_hand_FILL0_wght400_GRAD0_opsz24.svg';
 import CreatePostInClass from '../components/Post/CreatePostInClass';
+import CreateSessionInClass from '../components/Post/CreateSessionInClass';
 
 interface CoachingClassPageProps {
     // Add any props here
@@ -28,6 +29,10 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
     const { coachClass, coachClassStatus, error } = useFetchClass(classUUID || '');
     const { userProfile, userProfileStatus, userProfileError } = useFetchUserProfile();
 
+    const handleAddSession = () => {
+        console.log('Add session');
+    }
+
     useEffect(() => {
         if (coachClass) {
             setClassResponse(coachClass);
@@ -35,6 +40,9 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
 
         if (userProfile) {
             setMyUser(userProfile);
+            if (coachClass && userProfile) {
+                setIsOwner(coachClass.idOwner === userProfile.sub);
+            }
         }
     }, [coachClass, userProfile]);
 
@@ -45,7 +53,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
             <NavBar />
             <header className='flexStart column'>
                 <div className='row flexCenter'>
-                    <h2 className="pageTitle">{classResponse && classResponse.title}</h2>
+                    <h2 className="pageTitle" style={{margin: '0 1em 0 0'}}>{classResponse && classResponse.title}</h2>
                     <img src={member} alt='members' className="tinyIcon" />
                     <p>{classResponse && Math.round(classResponse.idMember.length/37)}</p>
                 </div>
@@ -57,11 +65,14 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
             
             <div className='dashboard'>
                 <div className="column">
-                    <h3>Sessies</h3>
+                    <div className="row spaceBetween">
+                        <h3>Sessies</h3>
+                        {isOwner && classUUID && 
+                            <CreateSessionInClass
+                                cUUID={classUUID}
+                            />}
+                    </div>
                     <div className="myClassList">
-                    {isOwner && 
-                        <button className="button">Add Session</button>
-                    }
                     {classResponse && 
                     classResponse.sessions && 
                     classResponse.sessions != null && 

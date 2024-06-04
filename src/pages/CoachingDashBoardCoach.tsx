@@ -4,11 +4,8 @@ import CoachingClassCard from '../components/CoachingClassCard';
 import UserPostSmall from '../components/Post/UserPostSmall';
 import { Session } from '../types/session';
 
-interface CoachingDashboardStarterProps {
-    // Add any props here
-}
 
-export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> = () => {
+export const CoachingDashboardCoach: React.FC = () => {
     let myUUID = '';
     const [classListResponse, setClassListResponse] = useState<any[]>([]);
     const [postListResponse, setPostListResponse] = useState<any[]>([]);
@@ -84,7 +81,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
     return (
         <div>
             <NavBar />
-            <h2 className='pageTitle'>Coaching Dashboard for Coaches</h2>
+            <h2 className='pageTitle'>Coaching Dashboard voor Coaches</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
                     {classListResponse.length>0 && classListResponse.map((item, index) => (
@@ -121,4 +118,4 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
     );
 };
 
-export default CoachingDashboardStarter;
+export default CoachingDashboardCoach;
