@@ -44,15 +44,14 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
         <>
             <NavBar />
             <header className='flexStart column'>
-                <h2 className="pageTitle">{classResponse && classResponse.title}</h2>
+                <div className='row flexCenter'>
+                    <h2 className="pageTitle">{classResponse && classResponse.title}</h2>
+                    <img src={member} alt='members' className="tinyIcon" />
+                    <p>{classResponse && Math.round(classResponse.idMember.length/37)}</p>
+                </div>
                 <div className="progressClass pageTitle">
                     <progress value={completedCheckpoints} max={classResponse && classResponse.sessions && classResponse.sessions.length}></progress>
                     <p>{completedCheckpoints} / {classResponse && classResponse.sessions && classResponse.sessions.length} checkpoints completed</p>
-                </div>
-                
-                <div className='row flexCenter'>
-                    <img src={member} alt='members' className="tinyIcon" />
-                    <p>{classResponse && Math.round(classResponse.idMember.length/37)}</p>
                 </div>
             </header>
             
