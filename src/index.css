@@ -242,7 +242,7 @@ header{
   padding-top: 5px;
 }
 
-button:hover {
+button:hover, .likeBtn:hover, .commentBtn:hover, .moreBtn:hover{
   cursor: pointer;
   filter: brightness(95%);
 }
@@ -624,6 +624,11 @@ header img {
   max-width: 100%;
 }
 
+.sessionCard:hover{
+  cursor: pointer;
+  filter: brightness(98%);
+}
+
 .sessionCard *{
   margin: 0 0 0.5em 0;
 }
@@ -778,7 +783,7 @@ header img {
 /* Create post */
 
 .createBtn{
-  background-color: var(--Meadow-Haze);
+  background-color: var(--Coastal-Blue);
   color: var(--Porcelean);
   border-radius: 30px;
   border-radius: 3em;
@@ -824,8 +829,8 @@ header img {
 }
 
 .createPost .buttons .submit{
-  background-color: var(--Meadow-Haze);
-  color: var(--Porcelean);
+  background: var(--Gradient);
+  color: var(--White);
 }
 
 .createPost .buttons .cancelBtn{

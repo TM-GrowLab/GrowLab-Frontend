@@ -18,13 +18,7 @@ export const SessionCard: React.FC<SessionCardProps>  = ({
 
     let date = new Date(sDate);
     let displayDate = () => {
-        let day = date.getDate();
-        let month = date.getMonth();
-        let year = date.getFullYear();
-
-        let hour = date.getHours();
-        let minute = date.getMinutes();
-        return `${month}/${day}/${year} ${hour}:${minute}`;
+        return date.toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit', hour: '2-digit', minute: '2-digit' })
     };
 
     return (
