@@ -74,13 +74,17 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            // const responseData = await response.json();
-            // setComments(comments + responseData);
+            window.location.reload();
 
             } catch (error) {
                 console.error(error);
             }
         };
+
+        const handleProfileClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+            event.stopPropagation();
+            navigate(`/user/${Post.poster}`);
+        }
 
         useEffect(() => {
             if (comments) {
@@ -99,7 +103,7 @@ export const UserPostLarge: React.FC<UserPostLargeProps> = (
     return (
         <div className='postItem boxShadow' onClick={handleOnClick}>
             <div className='topBar'>
-                <div className="posterInfo">
+                <div className="posterInfo" onClick={handleProfileClick}>
                     {Post.user && (
                         <img className='tinyImage' src={Post.user.profilePictureUrl} alt="profile"></img>
                     )}

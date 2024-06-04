@@ -9,6 +9,9 @@ import { useFetchClass } from '../hooks/useFetchClass';
 import { useFetchUserProfile } from '../hooks/user/useFetchUserProfile';
 import { Footer } from '../components/Footer';
 
+import member from '../images/icons/person_raised_hand_FILL0_wght400_GRAD0_opsz24.svg';
+import CreatePostInClass from '../components/Post/CreatePostInClass';
+
 interface CoachingClassPageProps {
     // Add any props here
 }
@@ -25,9 +28,6 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
     const { coachClass, coachClassStatus, error } = useFetchClass(classUUID || '');
     const { userProfile, userProfileStatus, userProfileError } = useFetchUserProfile();
 
-    const token = localStorage.getItem('token');
-    let url = process.env.REACT_APP_URL;
-
     useEffect(() => {
         if (coachClass) {
             setClassResponse(coachClass);
@@ -35,7 +35,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
 
         if (userProfile) {
             setMyUser(userProfile);
-        }        
+        }
     }, [coachClass, userProfile]);
 
     const completedCheckpoints = classResponse && classResponse.sessions && classResponse.sessions.filter((item: Session) => item.completed).length;
@@ -48,6 +48,11 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                 <div className="progressClass pageTitle">
                     <progress value={completedCheckpoints} max={classResponse && classResponse.sessions && classResponse.sessions.length}></progress>
                     <p>{completedCheckpoints} / {classResponse && classResponse.sessions && classResponse.sessions.length} checkpoints completed</p>
+                </div>
+                
+                <div className='row flexCenter'>
+                    <img src={member} alt='members' className="tinyIcon" />
+                    <p>{classResponse && Math.round(classResponse.idMember.length/37)}</p>
                 </div>
             </header>
             
@@ -78,7 +83,16 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                 </div>
                 
                 <div className="column">
-                    <h3>Coach updates</h3>
+                    <div className='row spaceBetween' >
+                        <h3>Updates</h3>
+                        {classUUID && 
+                            <CreatePostInClass 
+                                cUUID={classUUID} 
+                            />
+                        }
+                        
+                    </div>
+                    
                     <div className="myCoachUpdates">
                         {classResponse && 
                         classResponse.posts && 
@@ -92,7 +106,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                                 title={item.title}
                                 description={item.content} 
                                 poster={item.poster} 
-                                time={item.created_at}
+                                time={new Date(item.created_at)}
                                 likes={Math.round(item.likes.toString().length/37)}
                                 comments={Math.round(item.comments.toString().length/37)}
                             />

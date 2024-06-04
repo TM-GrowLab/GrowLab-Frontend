@@ -38,7 +38,7 @@ export const LogIn: React.FC = () => {
             data => {
             try{
                 if(data.status !== 401) {
-                    console.log(data.access_token);
+                    // console.log(data.access_token);
                     // store the token in local storage
                     localStorage.setItem('token', data.access_token);
                     // redirect to dashboard

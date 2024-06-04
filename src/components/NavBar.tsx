@@ -10,8 +10,6 @@ export const NavBar = () => {
     const [userProfileData, setUserProfileData] = useState<any>();
 
     useEffect(() => {
-        console.log(userProfile);
-        console.log(userProfileStatus);
         if (userProfileStatus === 'success') {
             setUserProfileData(userProfile);
         }
