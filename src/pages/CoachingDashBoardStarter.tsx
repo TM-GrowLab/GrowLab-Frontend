@@ -49,9 +49,7 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
 
     return (
         <>
-            <header className='center'>
-                <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
-            </header>
+            <h2 className='pageTitle'>Coaching Dashboard for Starters</h2>
             <div className='dashboard'>
                 <div className="column">
                     <h3>Mijn trajecten</h3>

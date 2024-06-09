@@ -23,15 +23,15 @@ export const NavBar = () => {
     const navigate = useNavigate();
 
     const handleNavigateCommunity = () => {
-        navigate('/community');
+        navigate('/feed');
     }
 
     const handleNavigateLearning = () => {
         navigate('/dashboard');
     }
 
-    const handleNavigateClients = () => {
-        navigate('/clients');
+    const handleNavigateStartups = () => {
+        navigate('/startups');
     }
 
     const navigateToMyProfile = () => {
@@ -47,7 +47,7 @@ export const NavBar = () => {
     }
 
     const handleNavigateCoaches = () => {
-        navigate('/coaches');
+        navigate('/coachDashboard');
     }
 
     return (
@@ -73,7 +73,7 @@ export const NavBar = () => {
                             <li className="nav_light" onClick={handleNavigateLearning}>Dashboard</li>
                             <li className="nav_light" onClick={handleNavigateCoaches}>Mijn coaches</li>
                             <li className="nav_light" onClick={handleNavigateConnections}>Mijn connecties</li>
-                            <li className="nav_light" onClick={handleNavigateClients}>Startups</li>
+                            <li className="nav_light" onClick={handleNavigateStartups}>Startups</li>
                             <li className="nav_light" onClick={handleNavigateCommunity}>Community</li>
                         </ul>
                     </div>

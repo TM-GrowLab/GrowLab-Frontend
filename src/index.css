@@ -403,7 +403,8 @@ button:hover, .likeBtn:hover, .commentBtn:hover, .moreBtn:hover{
   width: 80px;
 } */
 .pageTitle{
-  /* margin: 0 0 2vh 10vw; */
+  margin: 0 45px;
+  padding: 2em 0 1em 0;
 }
 
 /* navbar visitor */
@@ -414,7 +415,7 @@ nav#visitor {
   justify-content: space-between;
   align-items: center;
   min-height: 8em;
-  margin: 0 2em;
+  margin: 0 8em;
   margin-bottom: 3em;
 }
 
@@ -438,7 +439,7 @@ nav#visitor #nav_items {
 
 /* Navbar */
 nav#nav{
-  width: 16%;
+  width: 14%;
   background-color: var(--White);
   height: 100%;
   position: fixed;
@@ -478,7 +479,7 @@ ul li {
 }
 
 main{
-  margin-left: 16%;
+  margin-left: 14%;
 }
 
 .visitorMain{
@@ -890,6 +891,8 @@ header img {
   background-color: white;
   padding: 1em 8em;
   margin: 5em 0 0 0;
+  position: fixed;
+  bottom: 0;
 }
 
 .mini_logo {

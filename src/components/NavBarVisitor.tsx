@@ -44,8 +44,6 @@ export const NavBarVisitor = () => {
                     <li>
                         <img className="logo" src={logoGrowLab} alt="logo" />
                     </li>
-                    <li className="nav_light" onClick={handleNavigateCommunity}>Community</li>
-                    <li className="nav_light" onClick={handleNavigateLearning}>Coaching dashboard</li>
                 </ul>
                 {localStorage.getItem('token') ? (
                     <>
