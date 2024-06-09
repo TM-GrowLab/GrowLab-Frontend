@@ -28,7 +28,6 @@ export const PostPage: React.FC<PostPageProps> = () => {
     if (userProfileStatus === 'pending') {
         return (
             <div>
-                <NavBar />
                 <div className='postMain screen flexCenter'>
                     <div className="other"></div>
                     <div className="postContainer wideMainBox ">
@@ -41,7 +40,6 @@ export const PostPage: React.FC<PostPageProps> = () => {
 
     return (
         <div>
-            <NavBar />
             <div className='postMain screen flexCenter'>
                 <div className="other"></div>
                 <div className="postContainer wideMainBox ">

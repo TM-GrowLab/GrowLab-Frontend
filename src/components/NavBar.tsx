@@ -52,7 +52,7 @@ export const NavBar = () => {
 
     return (
         <>
-            <nav className='flexCenter column'>
+            <nav id='nav' className='flexCenter column'>
                 <section>
                 <img className="logo" src={logoGrowLab} alt="logo" />
                     <div className='navIcons'>

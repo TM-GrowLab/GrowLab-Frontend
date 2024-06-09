@@ -1,5 +1,5 @@
 import imgHeader from "../images/Header_img.png";
-import { NavBar } from "../components/NavBar";
+import { NavBarVisitor } from "../components/NavBarVisitor";
 import { Succesverhaal } from "../components/HomePage/Succesverhaal";
 import { useState } from "react";
 import LogIn from "../components/LogIn";
@@ -16,8 +16,7 @@ export const HomePage = () => {
 
     return (
         <>
-                        <NavBar />
-
+            <NavBarVisitor />
             <div className="container">
                 <header>
                     <div className="card_header">

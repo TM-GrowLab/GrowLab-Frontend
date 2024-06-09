@@ -9,7 +9,6 @@ interface MyProfilePageProps {
 export const MyProfilePage: React.FC<MyProfilePageProps> = () => {
     return (
         <>
-         <NavBar />
          <UserTestData />
             
         </>

@@ -50,7 +50,6 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
 
     return (
         <>
-            <NavBar />
             <header className='flexStart column'>
                 <div className='row flexCenter'>
                     <h2 className="pageTitle" style={{margin: '0 1em 0 0'}}>{classResponse && classResponse.title}</h2>

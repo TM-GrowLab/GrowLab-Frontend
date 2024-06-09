@@ -11,25 +11,24 @@ import PostPage from './pages/PostPage';
 import CoachingClassPage from './pages/CoachingClassPage';
 import CreatePost from './components/Post/CreatePost';
 import { UserPage } from './pages/UserPage';
-
+import MainLayout from './components/MainLayout'; // Vergeet niet om MainLayout te importeren
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="*" element={<div>Not Found</div>} />
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
         <Route path="/login" element={<LogIn />} />
-        <Route path="/feed" element={<Feed />} />
-        <Route path="/post/new" element={<CreatePost />} />
-        <Route path="/dashboard" element={<CoachingDashboardStarter />} />
-        <Route path="/coachDashboard" element={<CoachingDashboardCoach />} />
-        <Route path="/aanmeldgegevens" element={<AanmeldGegevens />} />
-        <Route path="/post/:postUUID" element={<PostPage />} />
-        <Route path="/class/:classUUID" element={<CoachingClassPage />} />
-        <Route path="/myProfile" element={<MyProfilePage />} />
-        <Route path="/user/:userUUID" element={<UserPage />} />
-        
+        <Route path="/feed" element={<MainLayout><Feed /></MainLayout>} />
+        <Route path="/post/new" element={<MainLayout><CreatePost /></MainLayout>} />
+        <Route path="/dashboard" element={<MainLayout><CoachingDashboardStarter /></MainLayout>} />
+        <Route path="/coachDashboard" element={<MainLayout><CoachingDashboardCoach /></MainLayout>} />
+        <Route path="/aanmeldgegevens" element={<MainLayout><AanmeldGegevens /></MainLayout>} />
+        <Route path="/post/:postUUID" element={<MainLayout><PostPage /></MainLayout>} />
+        <Route path="/class/:classUUID" element={<MainLayout><CoachingClassPage /></MainLayout>} />
+        <Route path="/myProfile" element={<MainLayout><MyProfilePage /></MainLayout>} />
+        <Route path="/user/:userUUID" element={<MainLayout><UserPage /></MainLayout>} />
+        <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </BrowserRouter>
   );

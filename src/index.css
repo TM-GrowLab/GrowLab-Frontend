@@ -406,11 +406,39 @@ button:hover, .likeBtn:hover, .commentBtn:hover, .moreBtn:hover{
   /* margin: 0 0 2vh 10vw; */
 }
 
+/* navbar visitor */
+/* Navbar */
+nav#visitor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 8em;
+  margin: 0 2em;
+  margin-bottom: 3em;
+}
+
+nav#visitor #nav_items {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+
+#nav_buttons_visitor {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 22%;
+
+}
 
 
 /* Navbar */
-nav{
-  width: 20%;
+nav#nav{
+  width: 16%;
   background-color: var(--White);
   height: 100%;
   position: fixed;
@@ -440,8 +468,17 @@ nav div ul {
   margin-bottom: 1em;
 }
 
+#nav_buttons {
+  display: flex;
+  flex-direction: column;
+}
+
 ul li {
   list-style-type: none;
+}
+
+main{
+  margin-left: 16%;
 }
 
 /* Header Home Page */

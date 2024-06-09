@@ -9,7 +9,6 @@ interface FeedProps {
 export const Feed: React.FC<FeedProps> = () => {
     return (
         <div>
-            <NavBar />
             {/* <CoachingClassCard
                 imgUrl="https://via.placeholder.com/150"
                 cardTitle="Coole klas"

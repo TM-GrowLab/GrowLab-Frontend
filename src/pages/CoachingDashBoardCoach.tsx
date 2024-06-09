@@ -80,7 +80,6 @@ export const CoachingDashboardCoach: React.FC = () => {
     
     return (
         <div>
-            <NavBar />
             <h2 className='pageTitle'>Coaching Dashboard voor Coaches</h2>
             <div className='dashboard'>
                 <div className='myClassList'>
