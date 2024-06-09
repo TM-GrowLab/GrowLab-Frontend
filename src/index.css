@@ -98,7 +98,8 @@ h5{
   font-family: "elza", sans-serif;
   font-weight: 300;
   font-style: normal;
-  font-size: 24px;
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .nav_select{
@@ -141,6 +142,7 @@ body {
   font-size: 16px;
   background-color: var(--Porcelean);
   color: var(--Charoal);
+  margin: 0;
 }
 
 .row div div img{
@@ -407,31 +409,35 @@ button:hover, .likeBtn:hover, .commentBtn:hover, .moreBtn:hover{
 
 
 /* Navbar */
-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  min-height: 8em;
-  margin: 0 2em;
-  margin-bottom: 3em;
+nav{
+  width: 20%;
+  background-color: var(--White);
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  justify-content: space-around !important;
 }
 
-#nav_items {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 40%;
+nav div ul li svg{
+  zoom: 1.5;
+  padding: 4px;
 }
 
-#nav_buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 22%;
+.navIcons ul{
+  box-shadow: var(--Box-Shadow);
+  border-radius: 20px;
+  padding: 2px 10px;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
 
+nav div ul {
+  padding: 0;
+}
+
+#nav_buttons button{
+  font-size: medium;
+  margin-bottom: 1em;
 }
 
 ul li {
