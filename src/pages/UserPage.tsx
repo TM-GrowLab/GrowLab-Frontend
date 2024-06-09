@@ -17,7 +17,6 @@ export const UserPage: React.FC<UserPageProps> = () => {
 
     return (
         <>
-            <NavBar />
             <Profile 
                 UUID={userUUID || ''} 
             />

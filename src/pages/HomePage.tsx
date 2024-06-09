@@ -16,7 +16,6 @@ export const HomePage = () => {
 
     return (
         <>
-            <NavBarVisitor />
             <div className="container">
                 <header>
                     <div className="card_header">
