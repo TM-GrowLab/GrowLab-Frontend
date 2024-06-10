@@ -893,6 +893,13 @@ header img {
   margin: 5em 0 0 0;
   position: fixed;
   bottom: 0;
+  color:#89898a;
+  font-size: 12px;
+}
+
+.footer_container section div ul li a{
+  color:#89898a;
+
 }
 
 .mini_logo {
@@ -900,7 +907,11 @@ header img {
 }
 
 .rights_block {
-  width: 35%;
+  width: 60%;
+  font-size: 10px;
+  display: flex;
+  align-items: end;
+  margin-bottom: 5px;
 }
 
 .footer_nav {
@@ -1019,4 +1030,49 @@ div.info{
 
  .bubble {
   padding-left: 0;
+ }
+
+ /* Connenctions */
+#connecties {
+  padding: 0 3em;
+}
+
+.miniConnectionCard{
+  width: 20em;
+  background-color: var(--White);
+  box-shadow: var(--Box-Shadow);
+  border-radius: 25px;
+  height: 9em;
+  margin-bottom: 2em;
+  margin-right: 2em;
+}
+
+ .miniConnectionCard div{
+  position: relative;
+  bottom: 5em;
+  left: 7.5em;
+  margin-top: 4px;
+  width: 58%;
+  display: flex;
+  justify-content: space-between;
+ }
+
+ .miniConnectionCard div h4{
+    margin-top: 0;
+ }
+
+ .miniConnectionCard p {
+  position: relative;
+  bottom: 8.5em;
+  left: 9em;
+  font-size: smaller;
+ }
+
+ .miniConnectionCard .profielfoto{
+  width: 5em;
+  height: 5em;
+ }
+
+ .miniConnectionCard .profile_cover{
+  height: 5em;
  }

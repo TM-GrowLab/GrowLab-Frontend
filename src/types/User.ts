@@ -4,8 +4,8 @@ export interface User {
     lastName: string;
     email: string;
     role: string;
-    connenctionsCoaches: string[];
-    connenctionsStarters: string[];
+    connectionsCoaches: string;
+    connectionsStarters: string;
     isProUser: boolean;
     dateJoined: Date;
     profilePictureUrl: string;
