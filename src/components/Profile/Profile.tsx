@@ -4,6 +4,7 @@ import ExperienceBox from  '../../components/Profile/ExperienceBox';
 import StartupBox from '../../components/Profile/StartupBox';
 import { useFetchUser } from '../../hooks/user/useFetchUser';
 import { useFetchUserProfile } from '../../hooks/user/useFetchUserProfile';
+import { useAddConnection } from '../../hooks/patch/useAddConnection';
 
 interface ProfileProps {
     UUID: string;
@@ -19,6 +20,17 @@ export const Profile: React.FC<ProfileProps> = (
 
     const { user, userStatus, userError} = useFetchUser(UUID);
     const {userProfile, userProfileStatus, userProfileError} = useFetchUserProfile();
+    const UUIDCurrentUser = userProfile?.sub ?? '';
+
+    const { addConnection, patchData, patchStatus, patchError } = useAddConnection();
+    const [connectionUUID, setConnectionUUID] = useState('');
+
+    const handleAddConnection = () => {
+        console.log('add connection');
+        console.log('currentUUID', UUIDCurrentUser);
+        console.log('connectionUUID', UUID);
+        addConnection({ UUID: UUIDCurrentUser, connectionUUID: UUID});
+    };
 
     useEffect(() => {
         if (userStatus === 'success') {
@@ -49,7 +61,7 @@ export const Profile: React.FC<ProfileProps> = (
                            ( <button className='grey_button'>
                                 Bewerken
                             </button>) :
-                            (<button className='grey_button'>
+                            (<button className='grey_button' onClick={handleAddConnection} disabled={patchStatus === 'pending'}>
                                 Connecteren
                             </button>)
                         }
