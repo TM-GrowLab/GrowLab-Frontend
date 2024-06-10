@@ -45,10 +45,13 @@ export const Profile: React.FC<ProfileProps> = (
                             <h2>{User.firstName} {User.lastName}</h2>
                             <h3>Ambitious DevOps Automator</h3>
                         </div>
-                        {User.UUID === myUuid &&
-                            <button className='grey_button'>
+                        {User.UUID === myUuid ?
+                           ( <button className='grey_button'>
                                 Bewerken
-                            </button>
+                            </button>) :
+                            (<button className='grey_button'>
+                                Connecteren
+                            </button>)
                         }
                     </div>
                 </section>
