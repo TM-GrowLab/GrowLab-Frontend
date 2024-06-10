@@ -11,7 +11,8 @@ import PostPage from './pages/PostPage';
 import CoachingClassPage from './pages/CoachingClassPage';
 import CreatePost from './components/Post/CreatePost';
 import { UserPage } from './pages/UserPage';
-import MainLayout from './components/MainLayout'; // Vergeet niet om MainLayout te importeren
+import MainLayout from './components/MainLayout'; 
+import MyConnectionsPage from './pages/MyConnectionsPage';
 
 const App: React.FC = () => {
   return (
@@ -28,6 +29,7 @@ const App: React.FC = () => {
         <Route path="/class/:classUUID" element={<MainLayout><CoachingClassPage /></MainLayout>} />
         <Route path="/myProfile" element={<MainLayout><MyProfilePage /></MainLayout>} />
         <Route path="/user/:userUUID" element={<MainLayout><UserPage /></MainLayout>} />
+        <Route path="/connections" element={<MainLayout><MyConnectionsPage /></MainLayout>} />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </BrowserRouter>
