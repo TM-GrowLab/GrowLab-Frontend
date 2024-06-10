@@ -12,7 +12,7 @@ import CoachingClassPage from './pages/CoachingClassPage';
 import CreatePost from './components/Post/CreatePost';
 import { UserPage } from './pages/UserPage';
 import MainLayout from './components/MainLayout'; 
-import MyConnectionsPage from './pages/MyConnectionsPage';
+import {MyConnectionsPage} from './pages/MyConnectionsPage';
 
 const App: React.FC = () => {
   return (
