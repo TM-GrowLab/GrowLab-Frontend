@@ -67,7 +67,7 @@ export const Profile: React.FC<ProfileProps> = ({ UUID }) => {
                 <div className='info'>
                     <div>
                         <h2>{User.firstName} {User.lastName}</h2>
-                        <h3>Ambitious DevOps Automator</h3>
+                        <h3 className='min_bold'>{User.function}</h3>
                     </div>
                     {User.UUID === myUuid ? (
                         <button className='grey_button'>

@@ -47,16 +47,20 @@ h1{
 
 h2{
   font-family: "elza", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
-  font-size: 36px;
+  font-size: 34px;
 }
 
 h3{
   font-family: "elza", sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-style: normal;
-  font-size: 24px;
+  font-size: 20px;
+}
+
+h3.min_bold{
+  font-weight: 400 !important;
 }
 
 h4{
@@ -241,8 +245,9 @@ header{
   background-color: var(--LightGrey);
   border: none;
   box-shadow: var(--Box-Shadow);
-  padding-top: 5px;
-}
+  font-size: medium;
+  font-weight: 500;
+  padding: 5px 15px;}
 
 button:hover, .likeBtn:hover, .commentBtn:hover, .moreBtn:hover{
   cursor: pointer;
@@ -956,13 +961,14 @@ div.title_box {
 .profile_container {
   display: flex;
   flex-direction: column;
-  margin: 0em 18em !important;
+  margin: 0em 15em !important;
   background-color: var(--White);
   border-radius: 25px;
   box-shadow: var(--Box-Shadow);
   min-height: 10em;
   top: 4em;
   position: relative;
+  margin-bottom: 8em !important;
 }
 
 .profile_cover {
@@ -998,7 +1004,7 @@ div.info{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-left: 4em;
+  margin-left: 3em;
 }
 
 .profile_header div h2, .profile_header div h3 {
@@ -1096,6 +1102,6 @@ div.info{
   cursor: pointer;
 }
 
-.dropbtn:hover {
+.dropbtn:hover, .clickable:hover {
   cursor: pointer;
 }

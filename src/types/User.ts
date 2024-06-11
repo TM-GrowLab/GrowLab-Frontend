@@ -4,6 +4,7 @@ export interface User {
     lastName: string;
     email: string;
     role: string;
+    function: string;
     connectionsCoaches: string;
     connectionsStarters: string;
     isProUser: boolean;

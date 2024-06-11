@@ -33,7 +33,7 @@ const UserList: React.FC = () => {
                         <div className='info'>
                             <div>
                                 <h2>{user.firstName} {user.lastName}</h2>
-                                <h3>Ambitious DevOps Automator</h3>
+                                <h3 className='min_bold'>{user.function}</h3>
                             </div>
                             <button className='grey_button'>
                                 Bewerken

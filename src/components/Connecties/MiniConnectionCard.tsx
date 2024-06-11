@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFetchCurrentUser } from "../../hooks/user/useFetchCurrentUser";
 import { CiMenuKebab } from "react-icons/ci";
 import { useDeleteConnection } from "../../hooks/delete/useDeleteConnection";
+import { useNavigate } from 'react-router-dom';
 
 interface MiniConnectionCardProps {
   currentUserUUID: string;
@@ -12,6 +13,7 @@ export const MiniConnectionCard: React.FC<MiniConnectionCardProps> = ({ currentU
     const { currentUser } = useFetchCurrentUser(connectionUUID);
     const { deleteConnection } = useDeleteConnection();
     const [isDropdownVisible, setDropdownVisible] = useState(false);
+    const navigate = useNavigate();
 
     const onRemoveConnection = () => {
         deleteConnection({ UUID: currentUserUUID, connectionUUID });
@@ -22,12 +24,15 @@ export const MiniConnectionCard: React.FC<MiniConnectionCardProps> = ({ currentU
         setDropdownVisible(!isDropdownVisible);
     };
 
+    const handleOnClickProfile = () => navigate(`/user/${connectionUUID}`);
+
+
     return (
         <div className="miniConnectionCard">
-            <img className='profile_cover' src={currentUser?.bannerPictureUrl || ""} alt="cover" />
-            <img className='profielfoto' src={currentUser?.profilePictureUrl || ""} alt="profielfoto" />
+            <img className='profile_cover clickable' onClick={handleOnClickProfile} src={currentUser?.bannerPictureUrl || ""} alt="cover" />
+            <img className='profielfoto clickable' onClick={handleOnClickProfile} src={currentUser?.profilePictureUrl || ""} alt="profielfoto" />
             <div className="row">
-                <h4>{currentUser?.firstName} {currentUser?.lastName}</h4>
+                <h4 className='clickable' onClick={handleOnClickProfile} >{currentUser?.firstName} {currentUser?.lastName}</h4>
                 <CiMenuKebab onClick={handleShowDropdown} className="dropbtn" />
                 {isDropdownVisible && (
                     <div className="dropdown-content">
