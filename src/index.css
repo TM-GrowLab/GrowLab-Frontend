@@ -1116,3 +1116,54 @@ div.info{
 .dropbtn:hover, .clickable:hover {
   cursor: pointer;
 }
+
+/* Feed */
+.feed_container {
+  margin: 0 3em;
+  
+}
+
+.feedcard{
+  border-radius: 25px;
+  background-color: white;
+  box-shadow: var(--Box-Shadow);
+  width: 80%;
+  height: 20em;
+  margin-bottom: 2em;
+}
+
+.feedcard div img {
+  height: 20em;
+  width: 20em;
+  object-fit: cover;
+  border-radius: 25px 0 0px 25px;
+}
+
+.deel_een {
+  margin: 1em 2em;
+  width: 35%;
+}
+
+.deel_een h2{
+  margin-bottom: 10px;
+}
+
+.deel_een h3{
+  margin-top: 0;
+}
+
+.deel_twee {
+  width: 20%;
+    display: flex;
+    justify-content: end;
+    margin-bottom: 1em;
+}
+
+.deel_een .interesses ul, .deel_twee .interesses ul{
+    margin-top: 0 !important;
+    font-size: medium;
+}
+
+.interesses h3{
+  margin-bottom: 10px;
+}
