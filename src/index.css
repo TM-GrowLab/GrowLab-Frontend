@@ -424,12 +424,21 @@ nav#visitor {
   margin-bottom: 3em;
 }
 
+nav section{
+  width: 65%;
+}
+
 nav#visitor #nav_items {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 40%;
+}
+
+#nav_items li:hover {
+  cursor: pointer;
+  font-weight: 400;
 }
 
 #nav_buttons_visitor {
@@ -472,6 +481,8 @@ nav div ul {
 #nav_buttons button{
   font-size: medium;
   margin-bottom: 1em;
+  min-width: auto !important;
+  min-height: 50px !important;
 }
 
 #nav_buttons {
