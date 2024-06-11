@@ -19,9 +19,9 @@ export const MyConnectionsPage: React.FC<MyConnectionsProps> = () => {
         <>
             <h2 className='pageTitle'>Mijn connecties</h2>
         <div id='connecties' className='row'>    
-            {currentUser?.connectionsStarters && currentUser?.connectionsStarters.split(",").map((connectieUUID: string, index: number) => (       
-               <MiniConnectionCard connectionUUID={connectieUUID} />
-            ))}         
+            {currentUser?.connectionsStarters && currentUser?.connectionsStarters.split(",").filter(Boolean).map((connectieUUID: string, index: number) => (
+                <MiniConnectionCard key={index} connectionUUID={connectieUUID} />
+            ))}        
         </div>
         <Footer />
         </>

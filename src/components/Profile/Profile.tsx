@@ -6,6 +6,7 @@ import { useFetchUser } from '../../hooks/user/useFetchUser';
 import { useFetchUserProfile } from '../../hooks/user/useFetchUserProfile';
 import { useAddConnection } from '../../hooks/patch/useAddConnection';
 import { useFetchCurrentUser } from '../../hooks/user/useFetchCurrentUser';
+import { useDeleteConnection } from '../../hooks/delete/useDeleteConnection';
 
 interface ProfileProps {
     UUID: string;
@@ -21,14 +22,16 @@ export const Profile: React.FC<ProfileProps> = ({ UUID }) => {
     const { currentUser, currentUserStatus, error } = useFetchCurrentUser(UUIDCurrentUser);
 
     const { addConnection, patchData, patchStatus, patchError } = useAddConnection();
-    
+    const { deleteConnection, deleteData, deleteStatus, deleteError } = useDeleteConnection();
+
     const handleAddConnection = () => {
         addConnection({ UUID: UUIDCurrentUser, connectionUUID: UUID });
         window.location.reload();
     };
 
     const handleRemoveConnection = () => {
-        console.log('Remove connection');
+        deleteConnection({ UUID: UUIDCurrentUser, connectionUUID: UUID });
+        window.location.reload();
     };
 
     const isAlreadyConnected = () => {
@@ -71,7 +74,7 @@ export const Profile: React.FC<ProfileProps> = ({ UUID }) => {
                             Bewerken
                         </button>
                     ) : isAlreadyConnected() ? (
-                        <button className='grey_button' onClick={handleRemoveConnection} >
+                        <button className='grey_button' onClick={handleRemoveConnection} disabled={deleteStatus === 'pending'}  >
                             Connectie verwijderen
                         </button>
                     ) : (
