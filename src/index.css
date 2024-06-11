@@ -1076,3 +1076,26 @@ div.info{
  .miniConnectionCard .profile_cover{
   height: 5em;
  }
+
+ /* Dropdown connection */
+.dropdown-content {
+  font-size: smaller;
+  position: absolute !important;
+  left: 15em !important;
+  bottom: 1em !important;
+  border-radius: 0px 25px 25px 0px;
+  box-shadow: var(--Box-Shadow);
+  background-color: var(--White);
+  padding: 10px 2em;
+  display: none;
+  z-index: 1;
+}
+
+.dropdown-content a:hover {
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  cursor: pointer;
+}
