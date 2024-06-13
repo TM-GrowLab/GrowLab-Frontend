@@ -13,6 +13,7 @@ import CreatePost from './components/Post/CreatePost';
 import { UserPage } from './pages/UserPage';
 import MainLayout from './components/MainLayout'; 
 import {MyConnectionsPage} from './pages/MyConnectionsPage';
+import { FeedStartups } from './pages/FeedStartups';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const App: React.FC = () => {
         <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/feed" element={<MainLayout><Feed /></MainLayout>} />
+        <Route path="/feedStartups" element={<MainLayout><FeedStartups /></MainLayout>} />
         <Route path="/post/new" element={<MainLayout><CreatePost /></MainLayout>} />
         <Route path="/dashboard" element={<MainLayout><CoachingDashboardStarter /></MainLayout>} />
         <Route path="/coachDashboard" element={<MainLayout><CoachingDashboardCoach /></MainLayout>} />
