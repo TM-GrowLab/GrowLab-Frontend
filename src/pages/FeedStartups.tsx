@@ -11,9 +11,8 @@ export const FeedStartups: React.FC = () => {
     const { userProfile, userProfileStatus, userProfileError } = useFetchUserProfile();
     const UUIDCurrentUser = userProfile?.sub ?? '';
 
-    // mijn startupp = current user UUID = owner UUID
+    
 
-    // alle startups behalve de mijne = current user UUID != owner UUID
     return (
         <div>
             <h2 className='pageTitle'>Mijn startups +</h2>
@@ -22,6 +21,7 @@ export const FeedStartups: React.FC = () => {
                     {startup.idOwner === UUIDCurrentUser &&
                         <div>
                             <StartupCard
+                                UUID={startup.UUID}
                                 fotoUrl={startup.fotoUrl}
                                 logoUrl={startup.logoUrl}
                                 institution={startup.institution}
@@ -36,7 +36,8 @@ export const FeedStartups: React.FC = () => {
                 <div className='feed_container' key={index}>
                     {startup.idOwner !== UUIDCurrentUser &&
                         <div>
-                            <StartupCard
+                            <StartupCard    
+                                UUID={startup.UUID}
                                 fotoUrl={startup.fotoUrl}
                                 logoUrl={startup.logoUrl}
                                 institution={startup.institution}
