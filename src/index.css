@@ -907,8 +907,8 @@ header img {
   background-color: white;
   padding: 1em 8em;
   margin: 5em 0 0 0;
-  position: fixed;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   color:#89898a;
   font-size: 12px;
 }

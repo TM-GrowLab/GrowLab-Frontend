@@ -19,7 +19,7 @@ const App: React.FC = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<MainLayout><HomePage /></MainLayout>} />
-        <Route path="/login" element={<LogIn />} />
+        <Route path="/login" element={<MainLayout><LogIn /></MainLayout>} />
         <Route path="/feed" element={<MainLayout><Feed /></MainLayout>} />
         <Route path="/post/new" element={<MainLayout><CreatePost /></MainLayout>} />
         <Route path="/dashboard" element={<MainLayout><CoachingDashboardStarter /></MainLayout>} />

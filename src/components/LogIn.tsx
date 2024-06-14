@@ -58,7 +58,7 @@ export const LogIn: React.FC = () => {
     };
 
     return (
-        <div className="login">
+        <div className="login center">
             <h2>Meld je aan bij <span>GrowLab</span>!</h2>
             <p>Welkom terug! Log in om door te gaan.</p>
             <form onSubmit={handleSubmit}>
