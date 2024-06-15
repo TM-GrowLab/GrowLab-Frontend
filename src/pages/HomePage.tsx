@@ -14,6 +14,10 @@ export const HomePage = () => {
         navigate('/aanmeldgegevens')
     }
 
+    const navigateToLogin = () => {
+        navigate('/login')
+    }
+
     return (
         <>
             <div className="container">
@@ -23,7 +27,7 @@ export const HomePage = () => {
                         <h1>stap te zetten.</h1>
                         <h5>Met GrowLab</h5>
                         <div className="header_buttons">
-                            <button id="aanmelden" className="sec_button_header">Aanmelden</button>
+                            <button id="aanmelden" className="sec_button_header" onClick={navigateToLogin}>Aanmelden</button>
                             <button id="registeren" className="pri_button_header" onClick={navigateToAanmeldGegevens} >Registeren</button>
                         </div>
                     </div>
@@ -37,21 +41,21 @@ export const HomePage = () => {
                         beschrijving="GrowLab gaf me een team, wij maakten er een familie van." 
                         />
                          <Succesverhaal 
-                        bedrijf="PixelVortex" 
-                        beschrijving="GrowLab gaf me een team, wij maakten er een familie van." 
+                        bedrijf="Digital Capybara" 
+                        beschrijving="GrowLab gaf me de tools, ik maakte er een succes van." 
                         />
                          <Succesverhaal 
-                        bedrijf="PixelVortex" 
-                        beschrijving="GrowLab gaf me een team, wij maakten er een familie van." 
+                        bedrijf="NB Media" 
+                        beschrijving="Zonder GrowLab was ik nooit zo ver gekomen." 
                         />
                          <Succesverhaal 
-                        bedrijf="PixelVortex" 
-                        beschrijving="GrowLab gaf me een team, wij maakten er een familie van." 
+                        bedrijf="The Digital Agency" 
+                        beschrijving="Als je wilt groeien, moet je bij GrowLab zijn." 
                         />
                     </div>
                 </section>
                 <section className="card_container">
-                    <div className="card_header">
+                    {/* <div className="card_header">
                         <h3>Over GrowLab</h3>
                         <p>Bij GrowLab draait alles om het bouwen van waardevolle verbindingen in de digitale wereld. Of je nu een ambitieuze start-up bent, een doorgewinterde mentor, of een klant op zoek naar innovatieve oplossingen, wij zijn er om jouw groeireis te ondersteunen. We geloven in de kracht van community, leren en het creëren van eerlijke kansen voor iedereen. Ontdek bij GrowLab een levendige omgeving waar ideeën gedijen, kennis wordt gedeeld, en duurzame zakelijke relaties worden gesmeed. Doe mee, leer, en groei met GrowLab! 🚀</p>
                         <div className="header_buttons">
@@ -69,7 +73,7 @@ export const HomePage = () => {
                             <img src="" alt="" />
                             <img src="" alt="" />
                         </div>
-                    </div>
+                    </div> */}
                 </section>
             </div>
             <Footer />
