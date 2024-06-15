@@ -903,20 +903,21 @@ header img {
 
 /* Footer */
 
+:has(.footer_container){
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .footer_container{
   background-color: white;
   padding: 1em 8em;
-  margin: 5em 0 0 0;
+  margin-top: auto;
   color:#89898a;
   font-size: 12px;
-
-  background-image: none;
-  background-repeat: repeat;
-  background-attachment: scroll;
-  background-position: 0% 0%;
-  position: fixed;
-  bottom: 0pt;
 }
+
+
 
 .footer_container section div ul li a{
   color:#89898a;

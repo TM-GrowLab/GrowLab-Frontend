@@ -18,12 +18,12 @@ export const MyConnectionsPage: React.FC<MyConnectionsProps> = () => {
     return (
         <>
             <h2 className='pageTitle'>Mijn connecties</h2>
-        <div id='connecties' className='row'>    
-            {currentUser?.connectionsStarters && currentUser?.connectionsStarters.split(",").filter(Boolean).map((connectieUUID: string, index: number) => (
-                <MiniConnectionCard key={index} connectionUUID={connectieUUID} currentUserUUID={UUIDCurrentUser} />
-            ))}        
-        </div>
-        <Footer />
+            <div id='connecties' className='row'>    
+                {currentUser?.connectionsStarters && currentUser?.connectionsStarters.split(",").filter(Boolean).map((connectieUUID: string, index: number) => (
+                    <MiniConnectionCard key={index} connectionUUID={connectieUUID} currentUserUUID={UUIDCurrentUser} />
+                ))}        
+            </div>
+            <Footer />
         </>
     );
 };

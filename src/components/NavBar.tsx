@@ -47,7 +47,7 @@ export const NavBar = () => {
     }
 
     const handleNavigateCoaches = () => {
-        navigate('/coachDashboard');
+        // navigate('/coachDashboard');
     }
 
     return (
