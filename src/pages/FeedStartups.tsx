@@ -19,7 +19,6 @@ export const FeedStartups: React.FC = () => {
             {startups?.map((startup: any, index: number) => (
                 <div className='feed_container' key={index}>
                     {startup.idOwner === UUIDCurrentUser &&
-                        <div>
                             <StartupCard
                                 UUID={startup.UUID}
                                 fotoUrl={startup.fotoUrl}
@@ -27,7 +26,6 @@ export const FeedStartups: React.FC = () => {
                                 institution={startup.institution}
                                 title={startup.title}
                             />
-                        </div>
                     }
                 </div>
             ))}

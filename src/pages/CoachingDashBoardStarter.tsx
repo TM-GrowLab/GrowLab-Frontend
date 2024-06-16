@@ -25,12 +25,6 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
     const [postList, setPostList] = useState<any[]>([]);
 
     useEffect(() => {
-        if (classData) {
-            setClassList(classData);
-        }
-        if (posts) {
-            setPostList(posts);
-        }
         if (userProfile && Object.keys(userProfileData).length === 0) { // Add condition to check if userProfileData is empty
             setUserProfileData(userProfile);
             if (userProfile && userProfile.role === 'coach') {
@@ -38,14 +32,17 @@ export const CoachingDashboardStarter: React.FC<CoachingDashboardStarterProps> =
                 Navigate('/coachDashboard');
             }
         }
+        if (classData) {
+            setClassList(classData);
+        }
+        if (posts) {
+            setPostList(posts);
+        }
     }, [classData, posts, userProfile]);
 
     if (classStatus === 'pending' || postsStatus === 'pending') {
         return <div>Loading...</div>;
     }
-
-    
-    
 
     return (
         <>

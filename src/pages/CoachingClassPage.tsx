@@ -46,7 +46,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
         }
     }, [coachClass, userProfile]);
 
-    const completedCheckpoints = classResponse && classResponse.sessions && classResponse.sessions.filter((item: Session) => item.completed).length;
+    const completedCheckpoints = classResponse && classResponse.sessions && classResponse.sessions.filter((item: Session) => item.completed)?.length;
 
     return (
         <>
@@ -54,7 +54,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                 <div className='row flexCenter'>
                     <h2 className="pageTitle" style={{margin: '0 1em 0 0'}}>{classResponse && classResponse.title}</h2>
                     <img src={member} alt='members' className="tinyIcon" />
-                    <p>{classResponse && Math.round(classResponse.idMember.length/37)}</p>
+                    <p>{classResponse && Math.round(classResponse.idMember?.length/37)}</p>
                 </div>
                 <div className="progressClass pageTitle">
                     <progress value={completedCheckpoints} max={classResponse && classResponse.sessions && classResponse.sessions.length}></progress>
@@ -75,7 +75,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                     {classResponse && 
                     classResponse.sessions && 
                     classResponse.sessions != null && 
-                    classResponse.sessions.length > 0 && 
+                    classResponse.sessions?.length > 0 && 
                     classResponse.sessions.map((item: Session) => (
                         <div className={`listItem ${item.completed === true ? 'completed' : ''}`} key={item.UUID}>
                             <SessionCard  
@@ -106,7 +106,7 @@ export const CoachingClassPage: React.FC<CoachingClassPageProps> = () => {
                         {classResponse && 
                         classResponse.posts && 
                         classResponse.posts != null && 
-                        classResponse.posts.length > 0 && 
+                        classResponse.posts?.length > 0 && 
                         classResponse.posts.map((item: any) => (
                         <div className="" key={item.UUID}>
                             <UserPostSmall  

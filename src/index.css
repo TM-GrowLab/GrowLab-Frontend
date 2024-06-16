@@ -726,6 +726,15 @@ header img {
   gap: 1em;
 }
 
+.myClassListCoach {
+  justify-content: flex-start;
+  width: 96%;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  gap: 1em;
+}
+
 .myCoachUpdates {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
