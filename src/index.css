@@ -144,6 +144,7 @@ body {
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
+  line-height: 20px;
   background-color: var(--Porcelean);
   color: var(--Charoal);
   margin: 0;
@@ -1179,6 +1180,7 @@ div.startup_card{
   width: 50%;
   background-color: var(--White);
   border-radius: 25px;
+  margin-top: 2em;
 }
 
 div.startup_card div img{
