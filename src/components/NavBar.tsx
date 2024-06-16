@@ -31,7 +31,7 @@ export const NavBar = () => {
     }
 
     const handleNavigateStartups = () => {
-        navigate('/startups');
+        navigate('/feedStartups');
     }
 
     const navigateToMyProfile = () => {
