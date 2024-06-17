@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "http://localhost:3001/static/css/main.1cf5c403.css",
-    "main.js": "http://localhost:3001/static/js/main.82b3bd4c.js",
+    "main.js": "http://localhost:3001/static/js/main.21fb3f5c.js",
     "static/js/453.31930ad0.chunk.js": "http://localhost:3001/static/js/453.31930ad0.chunk.js",
     "static/media/Succesverhaal.png": "http://localhost:3001/static/media/Succesverhaal.78ed8c652a1d9816376a.png",
     "static/media/Header_img.png": "http://localhost:3001/static/media/Header_img.19043a871d1746fd5e7c.png",
@@ -14,11 +14,11 @@
     "index.html": "http://localhost:3001/index.html",
     "static/media/comment_24dp_FILL0_wght400_GRAD0_opsz24.svg": "http://localhost:3001/static/media/comment_24dp_FILL0_wght400_GRAD0_opsz24.2e53783b5fb36f5565fe29705dfa8eae.svg",
     "main.1cf5c403.css.map": "http://localhost:3001/static/css/main.1cf5c403.css.map",
-    "main.82b3bd4c.js.map": "http://localhost:3001/static/js/main.82b3bd4c.js.map",
+    "main.21fb3f5c.js.map": "http://localhost:3001/static/js/main.21fb3f5c.js.map",
     "453.31930ad0.chunk.js.map": "http://localhost:3001/static/js/453.31930ad0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.1cf5c403.css",
-    "static/js/main.82b3bd4c.js"
+    "static/js/main.21fb3f5c.js"
   ]
 }

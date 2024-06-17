@@ -4,7 +4,8 @@ import { User } from '../../types/User';
 import { Error } from '../../types/Error';
 
 const fetchCurrentUser = async (UUID: string): Promise<User> => {
-    const response = await axios.get<User>(`http://localhost:3000/user/${UUID}`);
+    const URL = process.env.REACT_APP_URL;
+    const response = await axios.get<User>(`${URL}/user/${UUID}`);
     return response.data;
 };
 
