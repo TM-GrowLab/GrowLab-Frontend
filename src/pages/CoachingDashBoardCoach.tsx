@@ -3,6 +3,8 @@ import CoachingClassCard from '../components/CoachingClassCard';
 import UserPostSmall from '../components/Post/UserPostSmall';
 import { Session } from '../types/session';
 import { Footer } from '../components/Footer';
+import { useFetchClassDataForOwner } from '../hooks/user/useFetchClassesForOwner';
+import { useFetchUserProfile } from '../hooks/user/useFetchUserProfile';
 
 
 export const CoachingDashboardCoach: React.FC = () => {
@@ -10,80 +12,21 @@ export const CoachingDashboardCoach: React.FC = () => {
     const [classListResponse, setClassListResponse] = useState<any[]>([]);
     const [postListResponse, setPostListResponse] = useState<any[]>([]);
 
+    const {userProfile, userProfileStatus, userProfileError} = useFetchUserProfile();
+    const {classData, classStatus, classError} = useFetchClassDataForOwner(userProfile?.sub || ''); 
+
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                let url = process.env.REACT_APP_URL;
-                const token = localStorage.getItem('token');
-                const response = await fetch(`${url}/auth/profile`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                });
-
-                const data = await response.json();
-                myUUID = data.sub;
-            } catch (error) {
-                console.error(error);
-            }
-
-            try{
-                fetchClassData();
-                fetchPostsData();
-            }
-            catch (error) {
-                console.error(error);
-            }
-        };
-
-        const fetchClassData = async () => {
-            try {
-                let url = process.env.REACT_APP_URL;
-                const response = await fetch(
-                    `${url}/coach-class/forMember/${myUUID}`, 
-                    {}
-                );
-        
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-        
-                const classes = await response.json();
-                setClassListResponse(classes);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        const fetchPostsData = async () => {
-            try {
-                let url = process.env.REACT_APP_URL;
-                const response = await fetch(
-                    `${url}/post/forCoachesByMember/${myUUID}`, 
-                    {}
-                );
-        
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-
-                const posts = await response.json();
-                setPostListResponse(posts);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchUserData();
-        
-    }, [myUUID]);
+        if (classData) {
+            setClassListResponse(classData);
+        }
+    }, [classData]);
     
     return (
         <><div>
             <h2 className='pageTitle'>Coaching Dashboard voor Coaches</h2>
             <div className='dashboard'>
-                <div className='myClassList'>
-                    {classListResponse.length > 0 && classListResponse.map((item, index) => (
+                <div className='myClassListCoach'>
+                    {classListResponse && classListResponse.length > 0 && classListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
                             <CoachingClassCard
                                 UUID={item.UUID}
@@ -96,7 +39,7 @@ export const CoachingDashboardCoach: React.FC = () => {
                         </div>
                     ))}
                 </div>
-                <div className='myCoachUpdates'>
+                {/* <div className='myCoachUpdates'>
                     {postListResponse.length > 0 && postListResponse.map((item, index) => (
                         <div className="listItem" key={item.UUID}>
                             <UserPostSmall
@@ -109,7 +52,7 @@ export const CoachingDashboardCoach: React.FC = () => {
                                 comments={Math.round(item.comments.toString().length / 37)} />
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
         </div><Footer />
         </>

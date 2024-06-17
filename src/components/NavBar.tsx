@@ -71,7 +71,7 @@ export const NavBar = () => {
                     <div>
                         <ul id="nav_items">
                             <li className="nav_light" onClick={handleNavigateLearning}>Dashboard</li>
-                            <li className="nav_light" onClick={handleNavigateCoaches}>Mijn coaches</li>
+                            {/* <li className="nav_light" onClick={handleNavigateCoaches}>Mijn coaches</li> */}
                             <li className="nav_light" onClick={handleNavigateConnections}>Mijn connecties</li>
                             <li className="nav_light" onClick={handleNavigateStartups}>Startups</li>
                             <li className="nav_light" onClick={handleNavigateCommunity}>Community</li>
