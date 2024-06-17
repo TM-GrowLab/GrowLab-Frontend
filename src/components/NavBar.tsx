@@ -46,6 +46,10 @@ export const NavBar = () => {
         navigate('/connections');
     }
 
+    const navigateToMyChats = () => {
+        navigate('/myChats');
+    }
+
     const handleNavigateCoaches = () => {
         // navigate('/coachDashboard');
     }
@@ -60,7 +64,7 @@ export const NavBar = () => {
                             <li>
                                 <IoSearchOutline />
                             </li>
-                            <li>
+                            <li onClick={navigateToMyChats}>
                                 <IoChatboxOutline />
                             </li>
                             <li>
