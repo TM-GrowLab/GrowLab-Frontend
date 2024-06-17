@@ -15,6 +15,7 @@ import MainLayout from './components/MainLayout';
 import {MyConnectionsPage} from './pages/MyConnectionsPage';
 import { FeedStartups } from './pages/FeedStartups';
 import  ProfileStartup  from './pages/ProfileStartup';
+import { MyChatsPage } from './pages/MyChatsPage';
 
 const App: React.FC = () => {
   return (
@@ -34,6 +35,7 @@ const App: React.FC = () => {
         <Route path="/myProfile" element={<MainLayout><MyProfilePage /></MainLayout>} />
         <Route path="/user/:userUUID" element={<MainLayout><UserPage /></MainLayout>} />
         <Route path="/connections" element={<MainLayout><MyConnectionsPage /></MainLayout>} />
+        <Route path="/myChats" element={<MainLayout><MyChatsPage /></MainLayout>} />
         <Route path="*" element={<div>Not Found</div>} />
       </Routes>
     </BrowserRouter>
